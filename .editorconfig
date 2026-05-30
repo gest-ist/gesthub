@@ -12,3 +12,6 @@ max_line_length = 100
 
 [*.html]
 max_line_length = 500
+
+[*.py]
+indent_size = 4

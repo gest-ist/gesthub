@@ -1,0 +1,36 @@
+[project]
+name = "gest"
+version = "0.1.0"
+description = "GEST website, inventory, and convention platform"
+
+requires-python = ">=3.14"
+
+dependencies = [
+  "django-ftl>=0.14,<0.15",
+  "django>=5.2,<6.0",
+  "gunicorn>=23,<24",
+  "psycopg[binary]>=3.2,<4",
+]
+
+[project.scripts]
+check = "core.cli:check"
+fix = "core.cli:fix"
+gest = "core.cli:manage"
+manage = "core.cli:manage"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+include = ["core*", "pages*"]
+
+[dependency-groups]
+dev = ["ruff>=0.14,<0.15", "ty>=0.0.1a0"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
