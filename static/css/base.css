@@ -89,12 +89,12 @@ h3 {
   line-height: 1.15;
 }
 
-.site-header,
-.site-footer {
+body > header,
+body > footer {
   background-color: var(--nav-footer-color);
 }
 
-.site-nav {
+header > nav {
   min-height: var(--navbar-height);
   display: flex;
   align-items: stretch;
@@ -141,7 +141,7 @@ h3 {
   flex-wrap: wrap;
 }
 
-.site-nav a {
+header > nav a {
   min-height: var(--navbar-height);
   display: inline-flex;
   align-items: center;
@@ -149,8 +149,8 @@ h3 {
   text-decoration: none;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
+header > nav a:hover,
+header > nav a:focus-visible {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -220,12 +220,12 @@ h3 {
   font-weight: 800;
 }
 
-.site-footer {
+body > footer {
   text-align: center;
   padding: 1em 1.5em;
 }
 
-.site-footer p {
+body > footer p {
   margin: 0 auto;
 }
 
@@ -271,6 +271,7 @@ article h3 {
 /* Branded raised content block. */
 .card {
   padding: 1.1rem;
+  border: 1px solid var(--gest-black);
   border-radius: 0.75rem;
   background-color: var(--gest-gray);
   box-shadow: 0.4em 0.4em rgba(0, 0, 0, 0.15);
@@ -379,12 +380,12 @@ button:disabled {
 
 @media (max-width: 900px) {
 
-  .site-nav,
+  header > nav,
   .nav-actions {
     align-items: flex-start;
   }
 
-  .site-nav {
+  header > nav {
     flex-direction: column;
   }
 
@@ -404,7 +405,7 @@ button:disabled {
     font-size: 0.875rem;
   }
 
-  .site-nav a {
+  header > nav a {
     padding: 0.35rem 0.45rem;
   }
 

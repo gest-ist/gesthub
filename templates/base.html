@@ -10,12 +10,12 @@
     <meta name="description" content="{% block description %}{% ftlmsg 'site-description' %}{% endblock %}">
     <link rel="icon" href="{% static 'logos/small_blue.svg' %}">
     <link rel="preload" href="{% static 'fonts/Gabarito-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block styles %}{% endblock %}
   </head>
   <body>
-    <header class="site-header">
-      <nav class="site-nav" aria-label="{% ftlmsg 'nav-main-label' %}">
+    <header>
+      <nav aria-label="{% ftlmsg 'nav-main-label' %}">
         <a class="brand" href="{{ localized_urls.home }}">
           <img src="{% static 'logos/small_black.svg' %}" alt="" width="48" height="48">
           <span>{% ftlmsg 'site-description' %}</span>
@@ -57,7 +57,7 @@
       {% block content %}{% endblock %}
     </main>
 
-    <footer class="site-footer">
+    <footer>
       <p><span class="cr">&copy;</span> 2025–2026 GEST</p>
     </footer>
     {% block scripts %}{% endblock %}
