@@ -1,13 +1,19 @@
 from __future__ import annotations
 
-from django.urls import path
-from django.utils.translation import gettext_lazy as _
+from core.fluent import localized_patterns
+from django.views.generic import TemplateView
 
-from . import views
 
-app_name = "pages"
+def template(path: str):
+    """Short-hand for `TemplateView.as_view`."""
+    return TemplateView.as_view(template_name=path)
 
-urlpatterns = [
-    path("", views.home, name="home"),
-    path(_("contact/"), views.contact, name="contact"),
-]
+
+ROUTES = {
+    "home": (
+        template("pages/home.html"),
+        {"pt": "", "en": ""},
+    ),
+}
+
+urlpatterns = localized_patterns(ROUTES)

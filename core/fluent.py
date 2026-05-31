@@ -119,6 +119,7 @@ class PathLanguageMiddleware:
 def context(request):
     language = request.LANGUAGE_CODE
     current_route = route_name_from_match(request.resolver_match)
+    discord_url = request.build_absolute_uri("/discord")
 
     language_links = {}
     if current_route is not None:
@@ -129,8 +130,13 @@ def context(request):
         ftl.MODE_VAR_NAME: "server",
         "current_language": language,
         "language_links": language_links,
+        "site_urls": {
+            "discord": discord_url,
+        },
+        "site_url_labels": {
+            "discord": discord_url.removeprefix("https://").removeprefix("http://"),
+        },
         "localized_urls": {
             "home": route_url("home", language),
-            "contact": route_url("contact", language),
         },
     }

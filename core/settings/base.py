@@ -49,7 +49,7 @@ ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS")
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_ftl.apps.DjangoFtlConfig",
-    "pages",
+    "pages.apps.PagesConfig",
 ]
 
 MIDDLEWARE = [
@@ -99,6 +99,10 @@ LANGUAGES = [
 TIME_ZONE = "Europe/Lisbon"
 USE_I18N = False
 USE_TZ = True
+
+FTL = {
+    "AUTO_RELOAD_BUNDLES": False,
+}
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "public" / "static"

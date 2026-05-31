@@ -1,6 +1,146 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load ftl icons static %}
+
+{% block navlinks %}
+  <a href="#about">{% ftlmsg 'nav-about' %}</a>
+  <a href="#events">{% ftlmsg 'nav-events' %}</a>
+  <a href="#calendar">{% ftlmsg 'nav-calendar' %}</a>
+  <a href="#gallery">{% ftlmsg 'nav-gallery' %}</a>
+  <a href="#contact">{% ftlmsg 'nav-contact' %}</a>
+{% endblock %}
 
 {% block content %}
-  <h1>{% translate "GEST" %}</h1>
+  <section id="hero" class="hero">
+    <img src="{% static 'img/banner.svg' %}" loading="eager" alt="{% ftlmsg 'home-hero-alt' %}" width="6250" height="2500">
+  </section>
+
+  <section class="section white" id="about">
+    <div class="container">
+      <h2 class="title">{% ftlmsg 'home-about-title' %}</h2>
+      <p>{% ftlmsg 'home-about-body-1' %}</p>
+
+      <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
+        <img class="discord-invite-icon" src="{% simple_icon 'discord' %}" alt="" width="60" height="60">
+        <p>{% ftlmsg 'home-discord-invite' %}</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section dgreen" id="events">
+    <div class="container">
+      <h2 class="title">{% ftlmsg 'home-events-title' %}</h2>
+
+      <div id="event-cards" class="columns">
+        <article class="box hover-drop">
+          <section>
+            <h3 class="title">{% ftlmsg 'home-gamenights-title' %}</h3>
+            <p>{% ftlmsg 'home-gamenights-body' %}</p>
+          </section>
+          <footer>
+            <button disabled>{% ftlmsg 'home-game-collection' %}</button>
+          </footer>
+        </article>
+
+        <article class="box hover-drop">
+          <section>
+            <h3 class="title">{% ftlmsg 'home-oneshots-title' %}</h3>
+            <p>{% ftlmsg 'home-oneshots-body' %}</p>
+          </section>
+          <footer>
+            <button disabled>{% ftlmsg 'home-sign-up' %}</button>
+            <i>{% ftlmsg 'home-oneshots-closed' %}</i>
+          </footer>
+        </article>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container" id="calendar">
+      <h2 class="title">{% ftlmsg 'home-calendar-title' %}</h2>
+      <div class="box">
+        <div class="responsive-iframe">
+          <iframe title="{% ftlmsg 'home-calendar-frame-title' %}" loading="lazy" src="https://calendar.google.com/calendar/embed?src=f33f8cc9f59ccadffa773cf4fcfa3ce73f9a09b92b467cdb36e5aa52f5e60c99%40group.calendar.google.com&amp;ctz=Europe%2FLisbon"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section black" id="gallery">
+    <div class="container">
+      <h2 class="title">{% ftlmsg 'home-gallery-title' %}</h2>
+      <div class="gallery">
+        <button class="scroll-button hover-drop" type="button" data-gallery-scroll="-1" aria-label="{% ftlmsg 'home-gallery-previous' %}">&#10094;</button>
+        <div class="gallery-strip" data-gallery-strip aria-label="{% ftlmsg 'home-gallery-label' %}">
+          <a class="gallery-item hover-drop" href="#gallery-gamenight-2022">
+            <img src="{% static 'img/gamenight_2022.avif' %}" alt="Game Night, 2022" loading="lazy" decoding="async">
+          </a>
+          <a class="gallery-item hover-drop" href="#gallery-oneshots-2023">
+            <img src="{% static 'img/oneshots_2023.avif' %}" alt="D&amp;D One-Shots, 2023" loading="lazy" decoding="async">
+          </a>
+          <a class="gallery-item hover-drop" href="#gallery-oneshots-2022">
+            <img src="{% static 'img/oneshots_2022.avif' %}" alt="D&amp;D One-Shots, 2022" loading="lazy" decoding="async">
+          </a>
+          <a class="gallery-item hover-drop" href="#gallery-gameday-2025">
+            <img src="{% static 'img/gameday_2025.avif' %}" alt="Game Day, 2025" loading="lazy" decoding="async">
+          </a>
+          <a class="gallery-item hover-drop" href="#gallery-acolhimento-2024">
+            <img src="{% static 'img/acolhimento_2024.avif' %}" alt="Semana de Acolhimento, 2024" loading="lazy" decoding="async">
+          </a>
+        </div>
+        <button class="scroll-button hover-drop" type="button" data-gallery-scroll="1" aria-label="{% ftlmsg 'home-gallery-next' %}">&#10095;</button>
+      </div>
+    </div>
+
+    <a id="gallery-gamenight-2022" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{% static 'img/gamenight_2022.avif' %}" alt="Game Night, 2022" loading="lazy" decoding="async">
+    </a>
+    <a id="gallery-oneshots-2023" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{% static 'img/oneshots_2023.avif' %}" alt="D&amp;D One-Shots, 2023" loading="lazy" decoding="async">
+    </a>
+    <a id="gallery-oneshots-2022" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{% static 'img/oneshots_2022.avif' %}" alt="D&amp;D One-Shots, 2022" loading="lazy" decoding="async">
+    </a>
+    <a id="gallery-gameday-2025" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{% static 'img/gameday_2025.avif' %}" alt="Game Day, 2025" loading="lazy" decoding="async">
+    </a>
+    <a id="gallery-acolhimento-2024" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{% static 'img/acolhimento_2024.avif' %}" alt="Semana de Acolhimento, 2024" loading="lazy" decoding="async">
+    </a>
+  </section>
+
+  <section class="section white" id="contact">
+    <div class="container">
+      <h2 class="title">{% ftlmsg 'home-contact-title' %}</h2>
+      <p>{% ftlmsg 'home-contact-intro' %}</p>
+
+      <div class="contact-links">
+        <a class="box hover-drop" href="mailto:gest.sa@aeist.pt">
+          <span class="contact-link-label">
+            <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="" width="20" height="20">
+            Email
+          </span>
+          <strong>gest.sa@aeist.pt</strong>
+        </a>
+        <a class="box hover-drop" href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
+          <span class="contact-link-label">
+            <img class="social-icon" src="{% simple_icon 'instagram' %}" alt="" width="20" height="20">
+            Instagram
+          </span>
+          <strong>@gest.aeist</strong>
+        </a>
+        <a class="box hover-drop" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
+          <span class="contact-link-label">
+            <img class="social-icon" src="{% simple_icon 'discord' %}" alt="" width="20" height="20">
+            Discord
+          </span>
+          <strong>{{ site_url_labels.discord }}</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/gallery.js' %}" defer></script>
 {% endblock %}

@@ -1,23 +1,64 @@
-{% load i18n static %}
+{% load ftl icons static %}
 
 <!doctype html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ request.LANGUAGE_CODE }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% translate "GEST" %}{% endblock %}</title>
+    <meta name="theme-color" content="#d2bdb8">
+    <title>{% block title %}{% ftlmsg 'site-title' %} — {% ftlmsg 'site-description' %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% ftlmsg 'site-description' %}{% endblock %}">
+    <link rel="icon" href="{% static 'logos/small_blue.svg' %}">
+    <link rel="preload" href="{% static 'fonts/Gabarito-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{% static 'css/site.css' %}">
   </head>
   <body>
-    <header>
-      <nav aria-label="{% translate 'Main navigation' %}">
-        <a href="{% url 'pages:home' %}">{% translate "GEST" %}</a>
-        <a href="{% url 'pages:contact' %}">{% translate "Contact" %}</a>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="{% ftlmsg 'nav-main-label' %}">
+        <a class="brand" href="{{ localized_urls.home }}">
+          <img src="{% static 'logos/small_black.svg' %}" alt="" width="48" height="48">
+          <span>{% ftlmsg 'site-description' %}</span>
+        </a>
+
+        <div class="nav-links">
+          {% block navlinks %}
+            <a href="{{ localized_urls.home }}">{% ftlmsg 'nav-home' %}</a>
+          {% endblock %}
+        </div>
+
+        <div class="nav-actions">
+          <a class="social-link" href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
+            <img class="social-icon" src="{% simple_icon 'instagram' %}" alt="Instagram" width="20" height="20">
+          </a>
+          <a class="social-link" href="https://discord.gg/PU3aQhHnqu" target="_blank" rel="noopener noreferrer">
+            <img class="social-icon" src="{% simple_icon 'discord' %}" alt="Discord" width="20" height="20">
+          </a>
+          <a class="social-link" href="mailto:gest.sa@aeist.pt">
+            <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="Email" width="20" height="20">
+          </a>
+          {% if language_links %}
+            <div class="language-switcher">
+              <button class="language-button" type="button" aria-label="{% ftlmsg 'nav-language' %}">
+                {% include "icons/languages.svg" %}
+              </button>
+              <div class="language-menu">
+              {% for code, url in language_links.items %}
+                <a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a>
+              {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       {% block content %}{% endblock %}
     </main>
+
+    <footer class="site-footer">
+      <p><span class="cr">&copy;</span> 2025–2026 GEST</p>
+    </footer>
+    {% block scripts %}{% endblock %}
   </body>
 </html>
