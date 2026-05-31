@@ -11,6 +11,7 @@
     <link rel="icon" href="{% static 'logos/small_blue.svg' %}">
     <link rel="preload" href="{% static 'fonts/Gabarito-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    {% block styles %}{% endblock %}
   </head>
   <body>
     <header class="site-header">

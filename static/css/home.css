@@ -1,0 +1,248 @@
+.hero {
+  display: flex;
+  position: relative;
+  background-color: var(--gest-blue);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 5px 5px rgba(0, 0, 0, 0.2),
+    inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+}
+
+#discord-invite {
+  max-width: 13em;
+  position: absolute;
+  right: -4em;
+  top: 3em;
+  text-align: center;
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#discord-invite:hover,
+#discord-invite:focus-visible {
+  opacity: 1;
+}
+
+#discord-invite p {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.discord-invite-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+#events .card,
+#calendar .card,
+.contact-links .card {
+  background-color: var(--gest-white);
+}
+
+#event-cards article {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#event-cards h3 {
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+#event-cards footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#event-cards i {
+  opacity: 0.5;
+}
+
+#gallery,
+#gallery h2 {
+  color: var(--gest-white);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gallery-strip {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  gap: 1rem;
+  padding: 1rem 0.25rem 1.5rem;
+}
+
+.gallery-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  text-decoration: none;
+}
+
+.gallery-item img {
+  display: block;
+  max-height: 300px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0.35em 0.35em rgba(0, 0, 0, 0.65);
+  transition: box-shadow 0.08s ease-out;
+}
+
+.gallery .hover-drop:hover,
+.gallery .hover-drop:focus-visible {
+  transform: translate(0.08em, 0.08em);
+}
+
+.gallery-item.hover-drop:hover,
+.gallery-item.hover-drop:focus-visible {
+  box-shadow: none;
+}
+
+.gallery-item.hover-drop:hover img,
+.gallery-item.hover-drop:focus-visible img {
+  box-shadow: 0.29em 0.29em rgba(0, 0, 0, 0.65);
+}
+
+.scroll-button {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgba(245, 238, 222, 0.4);
+  border-radius: 8px;
+  background-color: var(--gest-white);
+  box-shadow: 0.25em 0.25em rgba(0, 0, 0, 0.65);
+  color: var(--gest-black);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.82);
+  cursor: zoom-out;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.1s ease-out,
+    visibility 0s linear 0.1s;
+}
+
+.gallery-lightbox:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.1s ease-out,
+    visibility 0s;
+}
+
+.gallery-lightbox img {
+  display: block;
+  max-width: min(100%, 1200px);
+  max-height: 90vh;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.5);
+  transform: scale(0.94);
+  transition: transform 0.1s ease-out;
+}
+
+.gallery-lightbox:target img {
+  transform: scale(1);
+}
+
+#contact p {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.contact-links {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-links a {
+  display: grid;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.contact-links span {
+  opacity: 0.72;
+}
+
+.contact-link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .contact-links {
+    grid-template-columns: 1fr;
+  }
+
+  #discord-invite {
+    position: static;
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery {
+    grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+    gap: 0.5rem;
+  }
+
+  .gallery-strip {
+    gap: 0.5rem;
+  }
+
+  .gallery-item img {
+    max-height: 180px;
+  }
+}
