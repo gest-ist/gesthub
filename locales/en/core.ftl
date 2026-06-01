@@ -9,3 +9,4 @@ nav-about = About
 nav-events = Events
 nav-calendar = Calendar
 nav-gallery = Gallery
+nav-gestcon = GESTCon

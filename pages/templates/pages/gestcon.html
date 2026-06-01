@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load ftl static %}
+
+{% block title %}{% ftlmsg 'gestcon-title' %}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gestcon.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <a href="#gallery">{% ftlmsg 'nav-gallery' %}</a>
+{% endblock %}
+
+{% block content %}
+  <section id="hero">
+    <img src="{% static 'img/gestcon/2026/banner.svg' %}" loading="eager" alt="{% ftlmsg 'gestcon-hero-alt' %}" width="6250" height="2500">
+  </section>
+
+  <section id="about" class="white">
+    <div class="container">
+      <p>{% ftlmsg 'gestcon-about-body' %}</p>
+    </div>
+  </section>
+
+  <section class="dgreen" id="gallery">
+    <!-- <div class="container"> -->
+    <!--   <h2>{% ftlmsg 'gestcon-gallery-title' %}</h2> -->
+    <!-- </div> -->
+
+    <div class="gestcon-gallery">
+      <div class="gestcon-photo-pair">
+        <img src="/media/gestcon/2026/ludoteca1.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-left-alt' %}">
+        <img src="/media/gestcon/2026/ludoteca2.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-right-alt' %}">
+      </div>
+
+      <figure class="gestcon-photo-feature">
+        <figcaption>{% ftlmsg 'gestcon-ludoteca-caption' %}</figcaption>
+        <img src="/media/gestcon/2026/root1.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-root-alt' %}">
+      </figure>
+
+      <figure class="gestcon-photo-feature">
+        <img src="/media/gestcon/2026/cubitos.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-cubitos-alt' %}">
+        <figcaption>{% ftlmsg 'gestcon-cubitos-caption' %}</figcaption>
+      </figure>
+
+      <figure class="gestcon-photo-feature">
+        <figcaption>
+          <a class="card hover-drop gestcon-gallery-link" href="{% ftlmsg 'gestcon-gallery-url' %}">{% ftlmsg 'gestcon-gallery-button' %}</a>
+        </figcaption>
+        <img src="/media/gestcon/2026/gesticieiro.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-gesticieiro-alt' %}">
+      </figure>
+    </div>
+  </section>
+{% endblock %}

@@ -138,5 +138,6 @@ def context(request):
         },
         "localized_urls": {
             "home": route_url("home", language),
+            "gestcon": route_url("gestcon", language),
         },
     }

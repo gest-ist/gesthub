@@ -27,3 +27,19 @@ home-gallery-close = Close photo
 
 home-contact-title = Contact
 home-contact-intro = Reach out if you have questions about events, the game library, or the group.
+
+gestcon-title = GESTCon — Board Game Convention
+gestcon-hero-alt = GESTCon banner
+gestcon-about-body =
+  GESTCon is a Board Game convention organized by GEST, a board gamers group of Instituto Superior Técnico.
+  The first GESTCon happened on the 9th, 10th and 11th of January 2026 and it was the first event of this type in Lisbon since 2019! We had hundreds of board games, classic and new, played between friends and family over three days.
+gestcon-gallery-title = Gallery
+gestcon-ludoteca-left-alt = GESTCon game library
+gestcon-ludoteca-right-alt = GESTCon game library
+gestcon-ludoteca-caption = With a library of over 300 selected games, there was fun for every age and experience level!
+gestcon-root-alt = Root being played at GESTCon
+gestcon-cubitos-alt = Cubitos being played at GESTCon
+gestcon-cubitos-caption = Cubitos!
+gestcon-gesticieiro-alt = GESTiceiro at GESTCon
+gestcon-gallery-button = View full gallery
+gestcon-gallery-url = /en/gestcon/2026/gallery/
