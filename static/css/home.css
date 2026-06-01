@@ -48,7 +48,7 @@
   text-align: center;
 }
 
-.discord-invite-icon {
+#discord-invite-icon {
   width: 3rem;
   height: 3rem;
   margin-inline: auto;
@@ -57,7 +57,7 @@
 
 #events .card,
 #calendar .card,
-.contact-links .card {
+#contact-links .card {
   background-color: var(--gest-white);
 }
 
@@ -90,14 +90,14 @@
   color: var(--gest-white);
 }
 
-.gallery {
+#gallery-carousel {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 1rem;
 }
 
-.gallery-strip {
+#gallery-strip {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -107,7 +107,7 @@
   padding: 1rem 0.25rem 1.5rem;
 }
 
-.gallery-strip::-webkit-scrollbar {
+#gallery-strip::-webkit-scrollbar {
   display: none;
 }
 
@@ -209,20 +209,20 @@
   text-align: center;
 }
 
-.contact-links {
+#contact-links {
   margin-top: 1.5rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.contact-links a {
+#contact-links a {
   display: grid;
   gap: 0.25rem;
   text-decoration: none;
 }
 
-.contact-links span {
+#contact-links span {
   opacity: 0.72;
 }
 
@@ -241,18 +241,18 @@
 }
 
 @media (max-width: 900px) {
-  .contact-links {
+  #contact-links {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .gallery {
+  #gallery-carousel {
     grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
     gap: 0.5rem;
   }
 
-  .gallery-strip {
+  #gallery-strip {
     gap: 0.5rem;
   }
 

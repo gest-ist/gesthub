@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block navlinks %}
-  <a href="#about">{% ftlmsg 'nav-about' %}</a>
-  <a href="#events">{% ftlmsg 'nav-events' %}</a>
-  <a href="#calendar">{% ftlmsg 'nav-calendar' %}</a>
-  <a href="#gallery">{% ftlmsg 'nav-gallery' %}</a>
-  <a href="#contact">{% ftlmsg 'nav-contact' %}</a>
-  <a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a>
+  <li><a href="#about">{% ftlmsg 'nav-about' %}</a></li>
+  <li><a href="#events">{% ftlmsg 'nav-events' %}</a></li>
+  <li><a href="#calendar">{% ftlmsg 'nav-calendar' %}</a></li>
+  <li><a href="#gallery">{% ftlmsg 'nav-gallery' %}</a></li>
+  <li><a href="#contact">{% ftlmsg 'nav-contact' %}</a></li>
+  <li><a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a></li>
 {% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
       <p>{% ftlmsg 'home-about-body-1' %}</p>
 
       <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
-        <img class="discord-invite-icon" src="{% simple_icon 'discord' %}" alt="Discord logo" width="60" height="60">
+        <img id="discord-invite-icon" src="{% simple_icon 'discord' %}" alt="Discord logo" width="60" height="60">
         <p>{% ftlmsg 'home-discord-invite' %}</p>
       </a>
     </div>
@@ -74,9 +74,9 @@
   <section class="black" id="gallery">
     <div class="container">
       <h2>{% ftlmsg 'home-gallery-title' %}</h2>
-      <div class="gallery">
+      <div id="gallery-carousel">
         <button class="scroll-button hover-drop" type="button" data-gallery-scroll="-1" aria-label="{% ftlmsg 'home-gallery-previous' %}">&#10094;</button>
-        <div class="gallery-strip" data-gallery-strip aria-label="{% ftlmsg 'home-gallery-label' %}">
+        <div id="gallery-strip" data-gallery-strip aria-label="{% ftlmsg 'home-gallery-label' %}">
           {% for image in home_gallery %}
           <a class="gallery-item hover-drop" href="#gallery-{{ image.id }}">
             <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" loading="lazy" decoding="async">
@@ -99,7 +99,7 @@
       <h2>{% ftlmsg 'home-contact-title' %}</h2>
       <p>{% ftlmsg 'home-contact-intro' %}</p>
 
-      <div class="contact-links">
+      <div id="contact-links">
         <a class="card hover-drop" href="mailto:gest.sa@aeist.pt">
           <span class="contact-link-label">
             <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="" width="20" height="20">

@@ -16,39 +16,39 @@
   <body>
     <header>
       <nav aria-label="{% ftlmsg 'nav-main-label' %}">
-        <a class="brand" href="{{ localized_urls.home }}">
+        <a id="brand" href="{{ localized_urls.home }}">
           <img src="{% static 'logos/small_black.svg' %}" alt="" width="48" height="48">
-          <span class="brand-full">{% ftlmsg 'site-description' %}</span>
+          <span id="brand-full">{% ftlmsg 'site-description' %}</span>
         </a>
 
         <input id="nav-toggle" type="checkbox">
         <div id="nav-panel">
-          <div id="nav-links">
+          <menu id="nav-links">
             {% block navlinks %}
-              <a href="{{ localized_urls.home }}">{% ftlmsg 'nav-home' %}</a>
+              <li><a href="{{ localized_urls.home }}">{% ftlmsg 'nav-home' %}</a></li>
             {% endblock %}
-          </div>
+          </menu>
 
           <div id="nav-actions">
-            <a class="social-link" href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
               <img class="social-icon" src="{% simple_icon 'instagram' %}" alt="Instagram" width="20" height="20">
             </a>
-            <a class="social-link" href="https://discord.gg/PU3aQhHnqu" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/PU3aQhHnqu" target="_blank" rel="noopener noreferrer">
               <img class="social-icon" src="{% simple_icon 'discord' %}" alt="Discord" width="20" height="20">
             </a>
-            <a class="social-link" href="mailto:gest.sa@aeist.pt">
+            <a href="mailto:gest.sa@aeist.pt">
               <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="Email" width="20" height="20">
             </a>
             {% if language_links %}
-              <div class="language-switcher">
-                <button class="language-button" type="button" aria-label="{% ftlmsg 'nav-language' %}">
+              <div id="language-switcher">
+                <button type="button" aria-label="{% ftlmsg 'nav-language' %}">
                   {% include "icons/languages.svg" %}
                 </button>
-                <div class="language-menu">
+                <menu>
                 {% for code, url in language_links.items %}
-                  <a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a>
+                  <li><a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a></li>
                 {% endfor %}
-                </div>
+                </menu>
               </div>
             {% endif %}
           </div>
@@ -67,7 +67,7 @@
     </main>
 
     <footer>
-      <p><span class="cr">&copy;</span> 2025–2026 GEST</p>
+      <p><span id="copyright">&copy;</span> 2025–2026 GEST</p>
     </footer>
     {% block scripts %}{% endblock %}
   </body>

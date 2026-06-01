@@ -1,6 +1,6 @@
 for (const button of document.querySelectorAll("[data-gallery-scroll]")) {
   button.addEventListener("click", () => {
-    const gallery = button.closest(".gallery");
+    const gallery = button.closest("#gallery-carousel");
     const strip = gallery?.querySelector("[data-gallery-strip]");
     const direction = Number(button.dataset.galleryScroll);
 
@@ -18,3 +18,11 @@ for (const button of document.querySelectorAll("[data-gallery-scroll]")) {
     });
   });
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !document.querySelector(".gallery-lightbox:target")) {
+    return;
+  }
+
+  location.hash = "gallery";
+});
