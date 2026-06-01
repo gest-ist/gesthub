@@ -22,6 +22,9 @@
 }
 
 #discord-invite {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
   max-width: 13em;
   position: absolute;
   right: -4em;
@@ -38,7 +41,8 @@
 }
 
 #discord-invite p {
-  display: block;
+  margin: 0;
+  max-width: none;
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
@@ -228,15 +232,17 @@
   gap: 0.4rem;
 }
 
+@media (max-width: 1600px) {
+  #discord-invite {
+    position: static;
+    width: min(100%, 16rem);
+    margin: 1.25rem auto 0;
+  }
+}
+
 @media (max-width: 900px) {
   .contact-links {
     grid-template-columns: 1fr;
-  }
-
-  #discord-invite {
-    position: static;
-    max-width: 28rem;
-    margin: 0 auto;
   }
 }
 
