@@ -9,6 +9,7 @@ dependencies = [
   "django-ftl>=0.14,<0.15",
   "django>=5.2,<6.0",
   "gunicorn>=23,<24",
+  "nestedtext>=3.8",
   "psycopg[binary]>=3.2,<4",
 ]
 

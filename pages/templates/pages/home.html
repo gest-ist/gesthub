@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load ftl icons static %}
+{% load data ftl icons static %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -11,6 +11,7 @@
   <a href="#calendar">{% ftlmsg 'nav-calendar' %}</a>
   <a href="#gallery">{% ftlmsg 'nav-gallery' %}</a>
   <a href="#contact">{% ftlmsg 'nav-contact' %}</a>
+  <a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a>
 {% endblock %}
 
 {% block content %}
@@ -76,41 +77,21 @@
       <div class="gallery">
         <button class="scroll-button hover-drop" type="button" data-gallery-scroll="-1" aria-label="{% ftlmsg 'home-gallery-previous' %}">&#10094;</button>
         <div class="gallery-strip" data-gallery-strip aria-label="{% ftlmsg 'home-gallery-label' %}">
-          <a class="gallery-item hover-drop" href="#gallery-gamenight-2022">
-            <img src="{% static 'img/gamenight_2022.avif' %}" alt="Game Night, 2022" loading="lazy" decoding="async">
+          {% for image in home_gallery %}
+          <a class="gallery-item hover-drop" href="#gallery-{{ image.id }}">
+            <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" loading="lazy" decoding="async">
           </a>
-          <a class="gallery-item hover-drop" href="#gallery-oneshots-2023">
-            <img src="{% static 'img/oneshots_2023.avif' %}" alt="D&amp;D One-Shots, 2023" loading="lazy" decoding="async">
-          </a>
-          <a class="gallery-item hover-drop" href="#gallery-oneshots-2022">
-            <img src="{% static 'img/oneshots_2022.avif' %}" alt="D&amp;D One-Shots, 2022" loading="lazy" decoding="async">
-          </a>
-          <a class="gallery-item hover-drop" href="#gallery-gameday-2025">
-            <img src="{% static 'img/gameday_2025.avif' %}" alt="Game Day, 2025" loading="lazy" decoding="async">
-          </a>
-          <a class="gallery-item hover-drop" href="#gallery-acolhimento-2024">
-            <img src="{% static 'img/acolhimento_2024.avif' %}" alt="Semana de Acolhimento, 2024" loading="lazy" decoding="async">
-          </a>
+          {% endfor %}
         </div>
         <button class="scroll-button hover-drop" type="button" data-gallery-scroll="1" aria-label="{% ftlmsg 'home-gallery-next' %}">&#10095;</button>
       </div>
     </div>
 
-    <a id="gallery-gamenight-2022" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{% static 'img/gamenight_2022.avif' %}" alt="Game Night, 2022" loading="lazy" decoding="async">
+    {% for image in home_gallery %}
+    <a id="gallery-{{ image.id }}" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" loading="lazy" decoding="async">
     </a>
-    <a id="gallery-oneshots-2023" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{% static 'img/oneshots_2023.avif' %}" alt="D&amp;D One-Shots, 2023" loading="lazy" decoding="async">
-    </a>
-    <a id="gallery-oneshots-2022" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{% static 'img/oneshots_2022.avif' %}" alt="D&amp;D One-Shots, 2022" loading="lazy" decoding="async">
-    </a>
-    <a id="gallery-gameday-2025" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{% static 'img/gameday_2025.avif' %}" alt="Game Day, 2025" loading="lazy" decoding="async">
-    </a>
-    <a id="gallery-acolhimento-2024" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{% static 'img/acolhimento_2024.avif' %}" alt="Semana de Acolhimento, 2024" loading="lazy" decoding="async">
-    </a>
+    {% endfor %}
   </section>
 
   <section class="white" id="contact">

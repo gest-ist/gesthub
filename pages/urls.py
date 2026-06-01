@@ -3,6 +3,8 @@ from __future__ import annotations
 from core.fluent import localized_patterns
 from django.views.generic import TemplateView
 
+from . import views
+
 
 def template(path: str):
     """Short-hand for `TemplateView.as_view`."""
@@ -11,7 +13,7 @@ def template(path: str):
 
 ROUTES = {
     "home": (
-        template("pages/home.html"),
+        views.home,
         {"pt": "", "en": ""},
     ),
 }
