@@ -15,6 +15,7 @@
 }
 
 #hero img {
+  /* TODO: Use <picture> with a custom mobile banner crop. */
   display: block;
   width: 100%;
 }
@@ -24,13 +25,13 @@ main > section#gallery {
   padding: 0;
 }
 
-.gestcon-gallery {
+#gallery-grid {
   display: grid;
   gap: 0;
   width: 100%;
 }
 
-.gestcon-photo-pair,
+#photo-pair,
 .gestcon-photo-feature {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -39,12 +40,12 @@ main > section#gallery {
   width: 100%;
 }
 
-.gestcon-photo-pair > *,
+#photo-pair > *,
 .gestcon-photo-feature > * {
   min-width: 0;
 }
 
-.gestcon-photo-pair img,
+#photo-pair img,
 .gestcon-photo-feature img {
   display: block;
   width: 100%;
@@ -60,20 +61,30 @@ main > section#gallery {
   font-size: 1.25rem;
 }
 
-.gestcon-gallery-link {
+.gestcon-photo-feature figcaption p {
+  margin-bottom: 1rem;
+}
+
+#gallery-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   text-decoration: none;
 }
 
 @media (max-width: 800px) {
-  .gestcon-photo-pair,
+  #photo-pair,
   .gestcon-photo-feature {
     grid-template-columns: 1fr;
   }
 
   .gestcon-photo-feature figcaption {
     padding: 2rem 0;
+  }
+
+  #gallery-cta img {
+    order: -1;
   }
 }

@@ -30,6 +30,6 @@ urlpatterns = [
     *localized_patterns(ROUTES),
     path("gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("gestcon/2026/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
-    path("pt/gestcon/", gestcon_view),
-    path("en/gestcon/", gestcon_view),
+    path("pt/gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
+    path("en/gestcon/", RedirectView.as_view(url="/en/gestcon/2026/", permanent=False)),
 ]

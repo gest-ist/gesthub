@@ -41,5 +41,6 @@ gestcon-root-alt = Root being played at GESTCon
 gestcon-cubitos-alt = Cubitos being played at GESTCon
 gestcon-cubitos-caption = Cubitos!
 gestcon-gesticieiro-alt = GESTiceiro at GESTCon
+gestcon-gallery-cta = Looking for more moments?
 gestcon-gallery-button = View full gallery
 gestcon-gallery-url = /en/gestcon/2026/gallery/

@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block navlinks %}
-  <a href="#gallery">{% ftlmsg 'nav-gallery' %}</a>
+  <li><a href="#gallery">{% ftlmsg 'nav-gallery' %}</a></li>
 {% endblock %}
 
 {% block content %}
@@ -23,12 +23,8 @@
   </section>
 
   <section class="dgreen" id="gallery">
-    <!-- <div class="container"> -->
-    <!--   <h2>{% ftlmsg 'gestcon-gallery-title' %}</h2> -->
-    <!-- </div> -->
-
-    <div class="gestcon-gallery">
-      <div class="gestcon-photo-pair">
+    <div id="gallery-grid">
+      <div id="photo-pair">
         <img src="/media/gestcon/2026/ludoteca1.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-left-alt' %}">
         <img src="/media/gestcon/2026/ludoteca2.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-right-alt' %}">
       </div>
@@ -43,9 +39,16 @@
         <figcaption>{% ftlmsg 'gestcon-cubitos-caption' %}</figcaption>
       </figure>
 
-      <figure class="gestcon-photo-feature">
+      <figure id="gallery-cta" class="gestcon-photo-feature">
         <figcaption>
-          <a class="card hover-drop gestcon-gallery-link" href="{% ftlmsg 'gestcon-gallery-url' %}">{% ftlmsg 'gestcon-gallery-button' %}</a>
+          <p>{% ftlmsg 'gestcon-gallery-cta' %}</p>
+          <a id="gallery-link" class="card hover-drop" href="{% ftlmsg 'gestcon-gallery-url' %}">
+            {% ftlmsg 'gestcon-gallery-button' %}
+          </a>
+          <!-- <a id="gallery-link" class="card hover-drop" href="{% ftlmsg 'gestcon-gallery-url' %}"> -->
+          <!--   <span>{% ftlmsg 'gestcon-gallery-cta' %}</span> -->
+          <!--   <button type="button">{% ftlmsg 'gestcon-gallery-button' %}</button> -->
+          <!-- </a> -->
         </figcaption>
         <img src="/media/gestcon/2026/gesticieiro.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-gesticieiro-alt' %}">
       </figure>

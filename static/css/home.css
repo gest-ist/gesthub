@@ -16,6 +16,7 @@
 }
 
 #hero img {
+  /* TODO: Use <picture> with a custom mobile banner crop. */
   display: block;
   width: 100%;
   margin-block: -2rem;
@@ -120,7 +121,7 @@
 
 .gallery-item img {
   display: block;
-  max-height: 300px;
+  max-height: 380px;
   width: auto;
   border-radius: 8px;
   box-shadow: 0.35em 0.35em rgba(0, 0, 0, 0.65);
@@ -257,6 +258,6 @@
   }
 
   .gallery-item img {
-    max-height: 180px;
+    max-height: 240px;
   }
 }

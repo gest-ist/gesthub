@@ -41,5 +41,6 @@ gestcon-root-alt = Jogo Root numa mesa da GESTCon
 gestcon-cubitos-alt = Jogo Cubitos numa mesa da GESTCon
 gestcon-cubitos-caption = Cubitos!
 gestcon-gesticieiro-alt = GESTiceiro na GESTCon
-gestcon-gallery-button = Ver galeria completa
+gestcon-gallery-cta = À procura de mais momentos?
+gestcon-gallery-button = Vê a galeria completa
 gestcon-gallery-url = /pt/gestcon/2026/galeria/
