@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./public:/app/public
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.prod
+      DJANGO_DEBUG: "false"

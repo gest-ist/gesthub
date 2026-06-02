@@ -1,0 +1,21 @@
+# Sample configuration. Adjust on actual deployment.
+
+gest.tecnico.ulisboa.pt {
+  encode zstd gzip
+
+  handle_path /static/* {
+    root * /srv/gest/public/static
+    file_server
+  }
+
+  handle_path /media/* {
+    root * /srv/gest/public/media
+    file_server
+  }
+
+  redir /discord https://discord.gg/
+
+  reverse_proxy 127.0.0.1:8000
+}
+
+http://localhost:8080 {
