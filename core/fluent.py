@@ -4,6 +4,7 @@ from collections.abc import Callable, Mapping
 from typing import Any
 
 from django.conf import settings
+from django.templatetags.static import static
 from django.urls import path, reverse
 from django.urls.resolvers import ResolverMatch, URLPattern
 from django.utils import translation
@@ -129,7 +130,12 @@ def context(request):
         ftl.BUNDLE_VAR_NAME: bundle,
         ftl.MODE_VAR_NAME: "server",
         "current_language": language,
+        "current_url": request.build_absolute_uri(),
         "language_links": language_links,
+        "social_images": {
+            "default": request.build_absolute_uri(static("img/banner.webp")),
+            "gestcon": request.build_absolute_uri(static("img/gestcon/2026/banner.webp")),
+        },
         "site_urls": {
             "discord": discord_url,
         },

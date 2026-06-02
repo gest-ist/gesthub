@@ -2,6 +2,10 @@
 {% load data ftl static %}
 
 {% block title %}{% ftlmsg 'gestcon-gallery-page-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'gestcon-gallery-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'gestcon-gallery-page-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'gestcon-gallery-description' %}{% endblock %}
+{% block og_image %}{{ social_images.gestcon_gallery }}{% endblock %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/gallery.css' %}">

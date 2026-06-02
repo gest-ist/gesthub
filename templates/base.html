@@ -8,6 +8,13 @@
     <meta name="theme-color" content="#d2bdb8">
     <title>{% block title %}{% ftlmsg 'site-title' %} — {% ftlmsg 'site-description' %}{% endblock %}</title>
     <meta name="description" content="{% block description %}{% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:site_name" content="{% ftlmsg 'site-title' %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% ftlmsg 'site-title' %} — {% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:url" content="{{ current_url }}">
+    <meta property="og:image" content="{% block og_image %}{{ social_images.default }}{% endblock %}">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="{% static 'logos/small_blue.svg' %}">
     <link rel="preload" href="{% static 'fonts/Gabarito-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">

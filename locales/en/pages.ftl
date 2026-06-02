@@ -1,4 +1,5 @@
 home-hero-alt = GEST banner
+home-description = Board game and tabletop group at Instituto Superior Técnico: Game Nights, D&D, tournaments, conventions, and community.
 
 home-about-title = About us
 home-about-body-1 = We are a student group at IST whose goal is to make available and promote a wide variety of games, including board games, role playing games, collectible card games, video games, and similar activities. We organize events, including Game Nights, D&D campaigns, tournaments, and more. In addition, we foster an inclusive community, where everyone is welcome to share their love of games. If you have any questions, contact us or join our Discord server!
@@ -43,6 +44,7 @@ home-contact-title = Contact
 home-contact-intro = Reach out if you have questions about events, the game library, or the group.
 
 gestcon-title = GESTCon — Board Game Convention
+gestcon-description = Board game convention organized by GEST at Instituto Superior Técnico.
 gestcon-hero-alt = GESTCon banner
 gestcon-about-body =
   GESTCon is a Board Game convention organized by GEST, a board gamers group of Instituto Superior Técnico.
@@ -59,4 +61,5 @@ gestcon-gallery-cta = Looking for more moments?
 gestcon-gallery-button = View full gallery
 gestcon-gallery-url = /en/gestcon/2026/gallery/
 gestcon-gallery-page-title = GESTCon — Gallery
+gestcon-gallery-description = Photos and moments from GESTCon 2026.
 gestcon-gallery-label = GESTCon photos

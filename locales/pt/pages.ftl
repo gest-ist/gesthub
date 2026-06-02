@@ -1,4 +1,5 @@
 home-hero-alt = Banner do GEST
+home-description = Grupo de jogos do Instituto Superior Técnico: Game Nights, D&D, torneios, convenções e comunidade.
 
 home-about-title = Sobre nós
 home-about-body-1 = Somos um grupo de estudantes do IST com o objectivo de disponibilizar e divulgar uma grande variedade de jogos, incluindo jogos de tabuleiro, jogos narrativos, jogos de cartas colecionáveis, videojogos e outras actividades semelhantes. Organizamos eventos, incluindo Game Nights, campanhas de D&D, torneios e muito mais. Para além disso, promovemos uma comunidade inclusiva, na qual todos são bem-vindos para partilhar o gosto pelos diversos jogos. Se tiveres alguma dúvida, contacta-nos ou junta-te ao nosso servidor de Discord!
@@ -43,6 +44,7 @@ home-contact-title = Contacto
 home-contact-intro = Fala connosco se tiveres dúvidas sobre eventos, a ludoteca, ou o grupo.
 
 gestcon-title = GESTCon — Convenção de Jogos de Tabuleiro
+gestcon-description = Convenção de jogos de tabuleiro organizada pelo GEST no Instituto Superior Técnico.
 gestcon-hero-alt = Banner da GESTCon
 gestcon-about-body =
   A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de board gamers do Instituto Superior Técnico.
@@ -59,4 +61,5 @@ gestcon-gallery-cta = À procura de mais momentos?
 gestcon-gallery-button = Vê a galeria completa
 gestcon-gallery-url = /pt/gestcon/2026/galeria/
 gestcon-gallery-page-title = GESTCon — Galeria
+gestcon-gallery-description = Fotografias e momentos da GESTCon 2026.
 gestcon-gallery-label = Fotografias da GESTCon

@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load data ftl static %}
 
+{% block description %}{% ftlmsg 'home-description' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'home-description' %}{% endblock %}
+
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
   <link rel="stylesheet" href="{% static 'css/home.css' %}">

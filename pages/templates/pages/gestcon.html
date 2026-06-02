@@ -2,6 +2,10 @@
 {% load ftl static %}
 
 {% block title %}{% ftlmsg 'gestcon-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'gestcon-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'gestcon-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'gestcon-description' %}{% endblock %}
+{% block og_image %}{{ social_images.gestcon }}{% endblock %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/gestcon.css' %}">
