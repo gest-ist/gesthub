@@ -72,6 +72,8 @@ main > section#gallery {
   justify-content: center;
   gap: 1rem;
   text-decoration: none;
+  color: var(--gest-white);
+  background-color: var(--gest-black);
 }
 
 @media (max-width: 800px) {

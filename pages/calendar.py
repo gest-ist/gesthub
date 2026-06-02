@@ -16,6 +16,7 @@ from icalendar import Calendar
 logger = logging.getLogger(__name__)
 
 _calendar = None
+_last_refresh_attempt = None
 # It's fine to not use a lock here. We'll improve this if ever needed.
 _started = False
 
@@ -44,6 +45,8 @@ class CalendarState:
 
 
 def get_calendar():
+    if _should_refresh():
+        refresh_once()
     return _calendar
 
 
@@ -58,12 +61,13 @@ def start_calendar_refresh():
 
 
 def refresh_once():
-    global _calendar
+    global _calendar, _last_refresh_attempt
 
     if not settings.CALENDAR_ICAL_URL:
         logger.warning("CALENDAR_ICAL_URL is not configured")
         return
 
+    _last_refresh_attempt = timezone.now()
     try:
         request = urllib.request.Request(
             settings.CALENDAR_ICAL_URL, headers={"User-Agent": "GEST website"}
@@ -82,6 +86,20 @@ def _refresh_loop():
     while True:
         refresh_once()
         time.sleep(settings.CALENDAR_REFRESH_SECONDS)
+
+
+def _should_refresh():
+    if not settings.CALENDAR_ICAL_URL:
+        return False
+
+    if _calendar is None:
+        return True
+
+    now = timezone.now()
+    refresh_interval = timedelta(seconds=settings.CALENDAR_REFRESH_SECONDS)
+    if _last_refresh_attempt is not None and now - _last_refresh_attempt < refresh_interval:
+        return False
+    return now - _calendar.loaded_at >= refresh_interval
 
 
 def month_context(year: int, month: int, state: CalendarState | None = None):

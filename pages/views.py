@@ -48,7 +48,17 @@ def calendar_embed(request):
         month = today.month
 
     state = get_calendar()
-    loaded_at = state.loaded_at.isoformat() if state is not None else "unavailable"
+    if state is None:
+        return render(
+            request,
+            "pages/calendar_embed.html",
+            {
+                **month_context(year, month, state),
+                "calendar_origin_url": CALENDAR_ORIGIN_URL,
+            },
+        )
+
+    loaded_at = state.loaded_at.isoformat()
     cache_key = f"calendar-embed:{request.LANGUAGE_CODE}:{year}:{month}:{loaded_at}:{CALENDAR_ORIGIN_HASH}"
     cached_html = cache.get(cache_key)
     if cached_html is not None:

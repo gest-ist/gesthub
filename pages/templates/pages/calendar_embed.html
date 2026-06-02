@@ -36,7 +36,7 @@
                   <td {% if not day.current_month %}class="muted"{% endif %}>
                     <time datetime="{{ day.date|date:'Y-m-d' }}">{{ day.date.day }}</time>
                     {% for event in day.events %}
-                      <p class="card hover-drop">
+                      <p class="card hover-drop gray">
                         <strong>{{ event.title }}</strong>
                         {% if event.details %}
                           <span>{{ event.details }}</span>
