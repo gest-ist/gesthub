@@ -28,6 +28,9 @@ calendar-weekday-thu = Qui
 calendar-weekday-fri = Sex
 calendar-weekday-sat = Sáb
 calendar-weekday-sun = Dom
+calendar-view-label = Vista do calendário
+calendar-agenda-label = Lista de eventos do mês
+calendar-agenda-empty-prefix = Sem eventos em
 calendar-origin-link = Ver calendário completo
 
 home-gallery-title = Galeria

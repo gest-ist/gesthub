@@ -28,6 +28,9 @@ calendar-weekday-thu = Thu
 calendar-weekday-fri = Fri
 calendar-weekday-sat = Sat
 calendar-weekday-sun = Sun
+calendar-view-label = Calendar view
+calendar-agenda-label = Monthly event list
+calendar-agenda-empty-prefix = No events in
 calendar-origin-link = View full calendar
 
 home-gallery-title = Gallery

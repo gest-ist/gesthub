@@ -68,6 +68,10 @@
   background-color: var(--gest-white);
 }
 
+#calendar > .card {
+  padding-bottom: 0.5rem;
+}
+
 #event-cards article {
   min-height: 100%;
   display: flex;
@@ -134,6 +138,10 @@
 }
 
 @media (max-width: 900px) {
+  #calendar .responsive-iframe {
+    aspect-ratio: 4 / 5;
+  }
+
   #contact-links {
     grid-template-columns: 1fr;
   }

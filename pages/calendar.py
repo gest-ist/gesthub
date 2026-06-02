@@ -111,12 +111,16 @@ def month_context(year: int, month: int, state: CalendarState | None = None):
     previous_year = year - 1 if month == 1 else year
     next_month = month + 1 if month < 12 else 1
     next_year = year + 1 if month == 12 else year
+    weeks = _month_days(year, month, _month_events(state, year, month))
 
     return {
         "calendar_available": True,
         "month_name_key": f"month-{month}",
         "year": year,
-        "weeks": _month_days(year, month, _month_events(state, year, month)),
+        "weeks": weeks,
+        "month_has_events": any(
+            day["current_month"] and day["events"] for week in weeks for day in week
+        ),
         "previous_month": previous_month,
         "previous_year": previous_year,
         "next_month": next_month,
