@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
+from functools import cache
 from pathlib import Path
 
 import imagesize
@@ -20,6 +21,7 @@ class GalleryItem:
     height: int
 
 
+@cache
 def load_gallery(name: str) -> list[GalleryItem]:
     manifest_path = settings.MEDIA_ROOT / name / "gallery.nt"
 
