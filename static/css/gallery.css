@@ -1,0 +1,132 @@
+#gallery-carousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+#gallery-strip {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  gap: 1rem;
+  padding: 1rem 0.25rem 1.5rem;
+}
+
+#gallery-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-grid {
+  columns: 3 22rem;
+  column-gap: 1.25rem;
+}
+
+.gallery-grid .gallery-item {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 0 0 0.08em 0.08em;
+  text-decoration: none;
+}
+
+.gallery-item img {
+  display: block;
+  max-height: 380px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0.35em 0.35em rgba(0, 0, 0, 0.65);
+  transition:
+    box-shadow 0.08s ease-out,
+    transform 0.08s ease-out;
+}
+
+.gallery-grid .gallery-item img {
+  width: 100%;
+  max-height: none;
+}
+
+.gallery-item.hover-drop:hover,
+.gallery-item.hover-drop:focus-visible {
+  transform: none;
+  box-shadow: none;
+}
+
+.gallery-item.hover-drop:hover img,
+.gallery-item.hover-drop:focus-visible img {
+  transform: translate(0.08em, 0.08em);
+  box-shadow: 0.27em 0.27em rgba(0, 0, 0, 0.65);
+}
+
+.scroll-button.hover-drop:hover,
+.scroll-button.hover-drop:focus-visible {
+  transform: translate(0.08em, 0.08em);
+  box-shadow: 0.17em 0.17em rgba(0, 0, 0, 0.65);
+}
+
+.scroll-button {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgba(245, 238, 222, 0.4);
+  border-radius: 8px;
+  background-color: var(--gest-white);
+  box-shadow: 0.25em 0.25em rgba(0, 0, 0, 0.65);
+  color: var(--gest-black);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+#gallery-dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 2rem;
+  border: 0;
+  place-items: center;
+  background: transparent;
+  cursor: zoom-out;
+}
+
+#gallery-dialog[open] {
+  display: grid;
+}
+
+#gallery-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.82);
+}
+
+#gallery-dialog img {
+  display: block;
+  max-width: min(100%, 1200px);
+  max-height: 90vh;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 640px) {
+  #gallery-carousel {
+    grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+    gap: 0.5rem;
+  }
+
+  #gallery-strip {
+    gap: 0.5rem;
+  }
+
+  #gallery-strip .gallery-item img {
+    max-height: 180px;
+  }
+}

@@ -2,6 +2,7 @@
 {% load data ftl icons static %}
 
 {% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
@@ -78,8 +79,8 @@
         <button class="scroll-button hover-drop" type="button" data-gallery-scroll="-1" aria-label="{% ftlmsg 'home-gallery-previous' %}">&#10094;</button>
         <div id="gallery-strip" data-gallery-strip aria-label="{% ftlmsg 'home-gallery-label' %}">
           {% for image in home_gallery %}
-          <a class="gallery-item hover-drop" href="#gallery-{{ image.id }}">
-            <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" loading="lazy" decoding="async">
+          <a class="gallery-item hover-drop" href="{{ image.url }}" data-gallery-full="{{ image.url }}" data-gallery-alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}data-gallery-width="{{ image.width }}" data-gallery-height="{{ image.height }}"{% endif %}>
+            <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy" decoding="async">
           </a>
           {% endfor %}
         </div>
@@ -87,11 +88,9 @@
       </div>
     </div>
 
-    {% for image in home_gallery %}
-    <a id="gallery-{{ image.id }}" class="gallery-lightbox" href="#gallery" aria-label="{% ftlmsg 'home-gallery-close' %}">
-      <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" loading="lazy" decoding="async">
-    </a>
-    {% endfor %}
+    <dialog id="gallery-dialog" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img alt="">
+    </dialog>
   </section>
 
   <section class="white" id="contact">

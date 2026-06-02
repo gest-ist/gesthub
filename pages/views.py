@@ -13,3 +13,13 @@ def home(request):
             "home_gallery": load_gallery("home"),
         },
     )
+
+
+def gestcon_gallery(request):
+    return render(
+        request,
+        "pages/gestcon_gallery.html",
+        {
+            "gallery": load_gallery("gestcon/2026"),
+        },
+    )

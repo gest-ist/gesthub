@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block navlinks %}
-  <li><a href="#gallery">{% ftlmsg 'nav-gallery' %}</a></li>
+  <li><a href="{{ localized_urls.gestcon_gallery }}">{% ftlmsg 'nav-gallery' %}</a></li>
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
       <figure id="gallery-cta" class="gestcon-photo-feature">
         <figcaption>
           <p>{% ftlmsg 'gestcon-gallery-cta' %}</p>
-          <a id="gallery-link" class="card hover-drop" href="{% ftlmsg 'gestcon-gallery-url' %}">
+          <a id="gallery-link" class="card hover-drop" href="{{ localized_urls.gestcon_gallery }}">
             {% ftlmsg 'gestcon-gallery-button' %}
           </a>
           <!-- <a id="gallery-link" class="card hover-drop" href="{% ftlmsg 'gestcon-gallery-url' %}"> -->

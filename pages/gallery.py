@@ -4,6 +4,7 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
+import imagesize
 import nestedtext
 from django.conf import settings
 
@@ -15,6 +16,8 @@ class GalleryItem:
     id: str
     url: str
     alts: dict[str, str]
+    width: int
+    height: int
 
 
 def load_gallery(name: str) -> list[GalleryItem]:
@@ -48,11 +51,14 @@ def load_gallery(name: str) -> list[GalleryItem]:
     return items
 
 
-def parse_gallery_item(name: str, filename: str, alts: dict[str, str]) -> GalleryItem | None:
+def parse_gallery_item(name: str, filename: str, alts: dict[str, str] | str) -> GalleryItem | None:
     image_path = settings.MEDIA_ROOT / name / filename
     if not image_path.is_file():
         logger.warning("Gallery image does not exist: %s", image_path)
         return None
+
+    if alts == "":
+        alts = {}
 
     supported_languages = {code for code, _label in settings.LANGUAGES}
     for code in alts:
@@ -60,8 +66,20 @@ def parse_gallery_item(name: str, filename: str, alts: dict[str, str]) -> Galler
             logger.warning("Unsupported gallery language code %r for %s", code, image_path)
 
     stem = Path(filename).stem
+    item_id = f"{name}-{stem}".replace("/", "-").replace("_", "-")
+    width, height = image_size(image_path)
     return GalleryItem(
-        id=f"{name}-{stem}".replace("_", "-"),
+        id=item_id,
         url=f"{settings.MEDIA_URL}{name}/{filename}",
         alts={code: alt.strip() for code, alt in alts.items()},
+        width=width,
+        height=height,
     )
+
+
+def image_size(path: Path) -> tuple[int, int]:
+    width, height = imagesize.get(path)
+    if width < 0 or height < 0:
+        logger.warning("Could not read image dimensions: %s", path)
+        return 0, 0
+    return width, height

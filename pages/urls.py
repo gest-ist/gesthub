@@ -24,6 +24,10 @@ ROUTES = {
         gestcon_view,
         {"pt": "gestcon/2026", "en": "gestcon/2026"},
     ),
+    "gestcon_gallery": (
+        views.gestcon_gallery,
+        {"pt": "gestcon/2026/galeria", "en": "gestcon/2026/gallery"},
+    ),
 }
 
 urlpatterns = [

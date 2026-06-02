@@ -44,3 +44,5 @@ gestcon-gesticieiro-alt = GESTiceiro at GESTCon
 gestcon-gallery-cta = Looking for more moments?
 gestcon-gallery-button = View full gallery
 gestcon-gallery-url = /en/gestcon/2026/gallery/
+gestcon-gallery-page-title = GESTCon — Gallery
+gestcon-gallery-label = GESTCon photos
