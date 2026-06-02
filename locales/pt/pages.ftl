@@ -18,6 +18,17 @@ home-oneshots-closed = De momento não temos inscrições a decorrer.
 
 home-calendar-title = Calendário
 home-calendar-frame-title = Calendário do GEST
+calendar-unavailable = Calendário ainda indisponível. Tenta novamente dentro de momentos.
+calendar-previous-month = Mês anterior
+calendar-next-month = Mês seguinte
+calendar-weekday-mon = Seg
+calendar-weekday-tue = Ter
+calendar-weekday-wed = Qua
+calendar-weekday-thu = Qui
+calendar-weekday-fri = Sex
+calendar-weekday-sat = Sáb
+calendar-weekday-sun = Dom
+calendar-origin-link = Ver calendário completo
 
 home-gallery-title = Galeria
 home-gallery-label = Fotografias de eventos

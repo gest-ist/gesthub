@@ -111,4 +111,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "public" / "media"
 
+CALENDAR_ICAL_URL = os.environ.get("CALENDAR_ICAL_URL", "")
+CALENDAR_REFRESH_SECONDS = int(os.environ.get("CALENDAR_REFRESH_SECONDS", "300"))
+CALENDAR_ORIGIN_URL = os.environ.get("CALENDAR_ORIGIN_URL", "")
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

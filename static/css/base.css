@@ -318,7 +318,7 @@ article h3 {
   border: 1px solid var(--gest-black);
   border-radius: 0.75rem;
   background-color: var(--gest-gray);
-  box-shadow: 0.4em 0.4em rgba(0, 0, 0, 0.15);
+  box-shadow: 0.4rem 0.4rem rgba(0, 0, 0, 0.15);
 }
 
 .hover-drop {
@@ -329,8 +329,8 @@ article h3 {
 
 .hover-drop:hover,
 .hover-drop:focus-visible {
-  transform: translate(0.15em, 0.15em);
-  box-shadow: 0.25em 0.25em rgba(0, 0, 0, 0.15);
+  transform: translate(0.15rem, 0.15rem);
+  box-shadow: 0.25rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 button {

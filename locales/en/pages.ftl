@@ -18,6 +18,17 @@ home-oneshots-closed = We are not running one-shots at the moment.
 
 home-calendar-title = Calendar
 home-calendar-frame-title = GEST calendar
+calendar-unavailable = Calendar not yet available. Try again in a few moments.
+calendar-previous-month = Previous month
+calendar-next-month = Next month
+calendar-weekday-mon = Mon
+calendar-weekday-tue = Tue
+calendar-weekday-wed = Wed
+calendar-weekday-thu = Thu
+calendar-weekday-fri = Fri
+calendar-weekday-sat = Sat
+calendar-weekday-sun = Sun
+calendar-origin-link = View full calendar
 
 home-gallery-title = Gallery
 home-gallery-label = Event photos
