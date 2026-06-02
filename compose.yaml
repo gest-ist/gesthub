@@ -2,12 +2,23 @@ services:
   web:
     build: .
     restart: unless-stopped
-    user: "${UID:-1000}:${GID:-1000}"
     env_file: .env
     ports:
       - "127.0.0.1:8000:8000"
     volumes:
-      - ./public:/app/public
+      - ./public/media:/app/public/media
     environment:
       DJANGO_SETTINGS_MODULE: core.settings.prod
       DJANGO_DEBUG: "false"
+
+  collectstatic:
+    build: .
+    profiles: ["ops"]
+    user: "${UID:-0}:${GID:-0}"
+    env_file: .env
+    volumes:
+      - ./public/static:/app/public/static
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.prod
+      DJANGO_DEBUG: "false"
+    command: ["manage", "collectstatic", "--noinput", "--clear"]
