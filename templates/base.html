@@ -1,4 +1,4 @@
-{% load ftl icons static %}
+{% load ftl static %}
 
 <!doctype html>
 <html lang="{{ request.LANGUAGE_CODE }}">
@@ -17,7 +17,7 @@
     <header>
       <nav aria-label="{% ftlmsg 'nav-main-label' %}">
         <a id="brand" href="{{ localized_urls.home }}">
-          <img src="{% static 'logos/small_black.svg' %}" alt="" width="48" height="48">
+          {% include "icons/small_black.opt.svg" %}
           <span id="brand-full">{% ftlmsg 'site-description' %}</span>
         </a>
 
@@ -30,14 +30,14 @@
           </menu>
 
           <div id="nav-actions">
-            <a href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
-              <img class="social-icon" src="{% simple_icon 'instagram' %}" alt="Instagram" width="20" height="20">
+            <a href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              {% include "icons/instagram.opt.svg" %}
             </a>
-            <a href="https://discord.gg/PU3aQhHnqu" target="_blank" rel="noopener noreferrer">
-              <img class="social-icon" src="{% simple_icon 'discord' %}" alt="Discord" width="20" height="20">
+            <a href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+              {% include "icons/discord.opt.svg" %}
             </a>
-            <a href="mailto:gest.sa@aeist.pt">
-              <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="Email" width="20" height="20">
+            <a href="mailto:gest.sa@aeist.pt" aria-label="Email">
+              {% include "icons/mail.svg" %}
             </a>
             {% if language_links %}
               <div id="language-switcher">

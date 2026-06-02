@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load data ftl icons static %}
+{% load data ftl static %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
@@ -26,7 +26,7 @@
       <p>{% ftlmsg 'home-about-body-1' %}</p>
 
       <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
-        <img id="discord-invite-icon" src="{% simple_icon 'discord' %}" alt="Discord logo" width="60" height="60">
+        <span id="discord-invite-icon">{% include "icons/discord.opt.svg" %}</span>
         <p>{% ftlmsg 'home-discord-invite' %}</p>
       </a>
     </div>
@@ -101,21 +101,21 @@
       <div id="contact-links">
         <a class="card hover-drop" href="mailto:gest.sa@aeist.pt">
           <span class="contact-link-label">
-            <img class="social-icon" src="{% lucide_icon 'mail' %}" alt="" width="20" height="20">
+            {% include "icons/mail.svg" %}
             Email
           </span>
           <strong>gest.sa@aeist.pt</strong>
         </a>
         <a class="card hover-drop" href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
           <span class="contact-link-label">
-            <img class="social-icon" src="{% simple_icon 'instagram' %}" alt="" width="20" height="20">
+            {% include "icons/instagram.opt.svg" %}
             Instagram
           </span>
           <strong>@gest.aeist</strong>
         </a>
         <a class="card hover-drop" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
           <span class="contact-link-label">
-            <img class="social-icon" src="{% simple_icon 'discord' %}" alt="" width="20" height="20">
+            {% include "icons/discord.opt.svg" %}
             Discord
           </span>
           <strong>{{ site_url_labels.discord }}</strong>

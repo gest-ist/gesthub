@@ -117,9 +117,9 @@ header>nav {
   font-weight: 600;
 }
 
-#brand img {
+#brand-logo {
   width: auto;
-  max-height: 1.75rem;
+  height: 1.75rem;
   flex: 0 0 auto;
 }
 
