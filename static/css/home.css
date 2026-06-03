@@ -16,10 +16,22 @@
 }
 
 #hero img {
-  /* TODO: Use <picture> with a custom mobile banner crop. */
   display: block;
   width: 100%;
   margin-block: -2rem;
+}
+
+@media (max-width: 1200px) {
+  #hero {
+    height: clamp(15rem, 40vw, 20rem);
+  }
+
+  #hero img {
+    height: 100%;
+    margin-block: 0;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 #discord-invite {
@@ -68,7 +80,7 @@
   background-color: var(--gest-white);
 }
 
-#calendar > .card {
+#calendar>.card {
   padding-bottom: 0.5rem;
 }
 

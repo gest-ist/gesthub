@@ -29,6 +29,7 @@
   --bg-color: var(--gest-white);
   --nav-footer-color: var(--gest-gray);
   --nav-pressed-color: color-mix(in srgb, var(--nav-footer-color) 90%, var(--gest-black));
+  --nav-dpressed-color: color-mix(in srgb, var(--nav-pressed-color) 90%, var(--gest-black));
 
   --nav-slide-duration: 0.2s;
   --nav-slide-easing: ease-in-out;
@@ -128,6 +129,19 @@ header>nav {
   white-space: nowrap;
 }
 
+@media (max-width: 600px) {
+  #brand {
+    span {
+      display: none;
+    }
+
+    &::after {
+      content: "GEST";
+      white-space: nowrap;
+    }
+  }
+}
+
 #nav-toggle,
 #nav-toggle-label {
   display: none;
@@ -140,8 +154,9 @@ header>nav {
 }
 
 #nav-links,
-#nav-actions,
-#language-switcher {
+#nav-socials,
+#nav-menu-socials,
+#language-dropdown {
   display: flex;
   align-items: stretch;
   gap: 0.25rem;
@@ -155,10 +170,14 @@ header>nav {
   list-style: none;
 }
 
-#nav-actions {
+#nav-socials {
   margin-left: auto;
   justify-content: flex-end;
   flex-wrap: wrap;
+}
+
+#nav-menu-socials {
+  display: none;
 }
 
 header>nav a {
@@ -170,15 +189,21 @@ header>nav a {
 }
 
 #nav-links li,
-#language-switcher li {
+#language-dropdown li {
   display: flex;
+}
+
+header>nav button {
+  background: transparent;
 }
 
 header>nav a:hover,
 header>nav a:focus-visible,
+header>nav button:hover,
+header>nav button:focus-visible,
 #nav-toggle-label:hover,
 #nav-toggle-label:focus-visible {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--nav-dpressed-color);
 }
 
 #nav-toggle:checked~#nav-toggle-label {
@@ -187,10 +212,94 @@ header>nav a:focus-visible,
 
 #nav-toggle:checked~#nav-toggle-label:hover,
 #nav-toggle:checked~#nav-toggle-label:focus-visible {
-  background-color: color-mix(in srgb, var(--nav-pressed-color) 90%, var(--gest-black));
+  background-color: var(--nav-dpressed-color);
 }
 
-#nav-actions > a {
+@media (max-width: 1400px) {
+  header>nav {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  #brand {
+    flex: 1;
+  }
+
+  #nav-toggle-label {
+    flex: 0 0 auto;
+    min-height: var(--nav-height);
+    width: var(--nav-height);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.28rem;
+    cursor: pointer;
+  }
+
+  #nav-toggle-label span {
+    width: 1.35rem;
+    border-top: 2px solid currentColor;
+  }
+
+  #nav-panel {
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 200;
+    top: 100%;
+    background-color: var(--nav-pressed-color);
+    pointer-events: none;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+
+    visibility: hidden;
+    clip-path: inset(0 0 100% 0);
+    transition:
+      clip-path var(--nav-slide-duration) var(--nav-slide-easing),
+      visibility 0s linear var(--nav-slide-duration);
+  }
+
+  #nav-toggle:checked~#nav-panel {
+    visibility: visible;
+    clip-path: inset(-10px);
+    pointer-events: auto;
+    transition:
+      clip-path var(--nav-slide-duration) var(--nav-slide-easing),
+      visibility 0s;
+  }
+
+  #nav-links {
+    width: 100%;
+    flex-direction: column;
+    max-height: 12rem;
+  }
+
+  #nav-links a {
+    width: 100%;
+  }
+
+  #nav-socials {
+    width: auto;
+    margin-left: 0;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 740px) {
+  #nav-socials {
+    display: none;
+  }
+
+  #nav-menu-socials {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+}
+
+.nav-socials>a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -210,53 +319,57 @@ header>nav a:focus-visible,
   stroke-linejoin: round;
 }
 
-#language-switcher {
+#language-dropdown {
   position: relative;
   min-height: var(--nav-height);
+  width: var(--nav-height);
   display: inline-flex;
   align-items: center;
 }
 
-#language-switcher > button {
+#language-dropdown>button {
   min-height: var(--nav-height);
+  width: 100%;
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
   border: 0;
   border-radius: 0;
-  background: transparent;
   color: inherit;
   font: inherit;
   cursor: pointer;
 }
 
-#language-switcher > menu {
+#language-dropdown>menu {
   position: absolute;
-  z-index: 10;
+  z-index: 30;
   top: 100%;
-  left: 0;
-  min-width: 100%;
+  right: 0;
+  width: 100%;
   margin: 0;
   padding: 0;
   display: none;
   flex-direction: column;
   list-style: none;
+  border-radius: 0 0 0.45rem 0.45rem;
   background-color: var(--nav-footer-color);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-#language-switcher:hover > menu,
-#language-switcher:focus-within > menu {
+#language-dropdown>menu li:last-child a {
+  border-radius: 0 0 0.45rem 0.45rem;
+}
+
+#language-dropdown:hover>menu,
+#language-dropdown:focus-within>menu {
   display: flex;
 }
 
-#language-switcher > button:hover,
-#language-switcher > button:focus-visible,
-#language-switcher > menu a:hover,
-#language-switcher > menu a:focus-visible {
-  background-color: rgba(0, 0, 0, 0.1);
+#language-dropdown>menu a {
+  width: 100%;
+  justify-content: center;
 }
 
-#language-switcher a[aria-current="true"] {
+#language-dropdown a[aria-current="true"] {
   font-weight: 800;
 }
 
@@ -310,6 +423,12 @@ article h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Branded raised content block. */
@@ -420,139 +539,4 @@ button:disabled {
 
 .default-color {
   color: var(--text-color);
-}
-
-@media (max-width: 1400px) {
-  header>nav {
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  #brand {
-    flex: 1;
-  }
-
-  #nav-toggle-label {
-    flex: 0 0 auto;
-    min-height: var(--nav-height);
-    width: var(--nav-height);
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.28rem;
-    cursor: pointer;
-  }
-
-  #nav-toggle-label span {
-    width: 1.35rem;
-    border-top: 2px solid currentColor;
-  }
-
-  #nav-panel {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: stretch;
-  }
-
-  #nav-links {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: 20;
-    top: 100%;
-    left: 0;
-    right: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    background-color: var(--nav-pressed-color);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-    transition:
-      max-height var(--nav-slide-duration) var(--nav-slide-easing),
-      visibility 0s linear var(--nav-slide-duration);
-  }
-
-  #nav-toggle:checked~#nav-panel #nav-links {
-    visibility: visible;
-    max-height: 20rem;
-    pointer-events: auto;
-    transition:
-      max-height var(--nav-slide-duration) var(--nav-slide-easing),
-      visibility 0s;
-  }
-
-  #nav-links a {
-    width: 100%;
-  }
-
-  #nav-actions {
-    width: auto;
-    margin-left: 0;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-  }
-}
-
-@media (max-width: 900px) {
-  .two-col {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 740px) {
-  #nav-panel {
-    width: 100%;
-    display: block;
-    position: absolute;
-    z-index: 20;
-    top: 100%;
-    left: 0;
-    right: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    background-color: var(--nav-pressed-color);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-    transition:
-      max-height var(--nav-slide-duration) var(--nav-slide-easing),
-      visibility 0s linear var(--nav-slide-duration);
-  }
-
-  #nav-toggle:checked~#nav-panel {
-    visibility: visible;
-    max-height: 20rem;
-    pointer-events: auto;
-    transition:
-      max-height var(--nav-slide-duration) var(--nav-slide-easing),
-      visibility 0s;
-  }
-
-  #nav-panel #nav-links {
-    position: static;
-    visibility: visible;
-    max-height: none;
-    overflow: visible;
-    box-shadow: none;
-    pointer-events: auto;
-    transition: none;
-  }
-
-  #nav-actions {
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  #brand-full {
-    display: none;
-  }
-
-  #brand::after {
-    content: "GEST";
-    white-space: nowrap;
-  }
 }

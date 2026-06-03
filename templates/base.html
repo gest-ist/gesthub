@@ -25,7 +25,7 @@
       <nav aria-label="{% ftlmsg 'nav-main-label' %}">
         <a id="brand" href="{{ localized_urls.home }}">
           {% include "icons/small_black.opt.svg" %}
-          <span id="brand-full">{% ftlmsg 'site-description' %}</span>
+          <span>{% ftlmsg 'site-description' %}</span>
         </a>
 
         <input id="nav-toggle" type="checkbox">
@@ -36,30 +36,27 @@
             {% endblock %}
           </menu>
 
-          <div id="nav-actions">
-            <a href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              {% include "icons/instagram.opt.svg" %}
-            </a>
-            <a href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-              {% include "icons/discord.opt.svg" %}
-            </a>
-            <a href="mailto:gest.sa@aeist.pt" aria-label="Email">
-              {% include "icons/mail.svg" %}
-            </a>
-            {% if language_links %}
-              <div id="language-switcher">
-                <button type="button" aria-label="{% ftlmsg 'nav-language' %}">
-                  {% include "icons/languages.svg" %}
-                </button>
-                <menu>
-                {% for code, url in language_links.items %}
-                  <li><a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a></li>
-                {% endfor %}
-                </menu>
-              </div>
-            {% endif %}
+          <div id="nav-menu-socials" class="nav-socials">
+            {% include "partials/nav_socials.html" %}
           </div>
         </div>
+
+        <div id="nav-socials" class="nav-socials">
+          {% include "partials/nav_socials.html" %}
+        </div>
+
+        {% if language_links %}
+          <div id="language-dropdown">
+            <button type="button" aria-label="{% ftlmsg 'nav-language' %}">
+              {% include "icons/languages.svg" %}
+            </button>
+            <menu>
+              {% for code, url in language_links.items %}
+                <li><a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a></li>
+              {% endfor %}
+            </menu>
+          </div>
+        {% endif %}
 
         <label id="nav-toggle-label" for="nav-toggle" aria-label="{% ftlmsg 'nav-main-label' %}">
           <span></span>
