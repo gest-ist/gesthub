@@ -4,9 +4,9 @@ services:
     restart: unless-stopped
     env_file: .env
     ports:
-      - "127.0.0.1:8000:8000"
+      - 8000:8000
     volumes:
-      - ./public/media:/app/public/media
+      - ./public:/app/public
     environment:
       DJANGO_SETTINGS_MODULE: core.settings.prod
       DJANGO_DEBUG: "false"
