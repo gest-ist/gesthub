@@ -2,13 +2,14 @@ home-hero-alt = Banner do GEST
 home-description = Grupo de jogos do Instituto Superior Técnico: Game Nights, D&D, torneios, convenções e comunidade.
 
 home-about-title = Sobre nós
-home-about-body-1 = Somos um grupo de estudantes do IST com o objectivo de disponibilizar e divulgar uma grande variedade de jogos, incluindo jogos de tabuleiro, jogos narrativos, jogos de cartas colecionáveis, videojogos e outras actividades semelhantes. Organizamos eventos, incluindo Game Nights, campanhas de D&D, torneios e muito mais. Para além disso, promovemos uma comunidade inclusiva, na qual todos são bem-vindos para partilhar o gosto pelos diversos jogos. Se tiveres alguma dúvida, contacta-nos ou junta-te ao nosso servidor de Discord!
+home-about-body-1 = Somos um grupo de estudantes do IST que promove o convívio através de todo o tipo de jogos, desde jogos de tabuleiro e jogos narrativos, a jogos de cartas, videojogos, e mais. Organizamos eventos como as Game Nights, Campanhas e One-Shots de TTRPS, torneios, e outras atividades ao longo do ano. Para além disso, procuramos cultivar uma comunidade acolhedora e inclusiva, na qual todos são bem-vindos a partilhar o gosto pelos diversos jogos. Junta-te à nossa comunidade no Discord e segue-nos no Instagram para estares a par dos nossos eventos! Se tiveres alguma dúvida, contacta-nos por mail ou pelas nossas redes sociais.
+<#--home-about-body-1 = Somos um grupo de estudantes do IST com o objectivo de disponibilizar e divulgar uma grande variedade de jogos, incluindo jogos de tabuleiro, jogos narrativos, jogos de cartas colecionáveis, videojogos e outras actividades semelhantes. Organizamos eventos, incluindo Game Nights, campanhas de D&D, torneios e muito mais. Para além disso, promovemos uma comunidade inclusiva, na qual todos são bem-vindos para partilhar o gosto pelos diversos jogos. Se tiveres alguma dúvida, contacta-nos ou junta-te ao nosso servidor de Discord!-->
 home-discord-invite = Junta-te a nós no Discord para conversar, participar em actividades e interagir com a comunidade!
 
 home-events-title = Eventos recorrentes
 home-gamenights-title = Game Nights
 home-gamenights-body =
-  Junta-te a uma das nossas Game Nights semanais! Marca no calendário a próxima data e vem jogar Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength e muito mais. Não é necessária inscrição, e podes trazer o teu grupo ou vir individualmente. Este evento é aberto tanto a veteranos como a principiantes (ou sem experiência nenhuma!).
+  Aparece nas nossas Game Nights semanais! Marca no calendário a próxima data e vem jogar Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength e muito mais. Não é necessária inscrição, e podes trazer o teu grupo ou vir individualmente. Este evento é aberto tanto a veteranos como a principiantes (ou sem experiência nenhuma!).
   Consulta a nossa ludoteca carregando no botão abaixo.
 home-game-collection = Colecção de jogos
 home-oneshots-title = One-Shots de D&D
@@ -47,7 +48,7 @@ gestcon-title = GESTCon — Convenção de Jogos de Tabuleiro
 gestcon-description = Convenção de jogos de tabuleiro organizada pelo GEST no Instituto Superior Técnico.
 gestcon-hero-alt = Banner da GESTCon
 gestcon-about-body =
-  A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de board gamers do Instituto Superior Técnico.
+  A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de estudantes do IST dedicado a jogos de mesa e mais.
   A primeira edição deste evento realizou-se a 9, 10 e 11 de Janeiro de 2026 e foi o primeiro evento deste tipo em Lisboa desde 2019! Tivemos centenas de jogos de tabuleiro, clássicos e novidades, jogados entre amigos e família ao longo de três dias de convenção!
 gestcon-gallery-title = Galeria
 gestcon-ludoteca-left-alt = Ludoteca da GESTCon
