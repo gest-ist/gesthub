@@ -2,13 +2,13 @@ home-hero-alt = GEST banner
 home-description = Board game and tabletop group at Instituto Superior Técnico: Game Nights, D&D, tournaments, conventions, and community.
 
 home-about-title = About us
-home-about-body-1 = We are a student group at IST whose goal is to make available and promote a wide variety of games, including board games, role playing games, collectible card games, video games, and similar activities. We organize events, including Game Nights, D&D campaigns, tournaments, and more. In addition, we foster an inclusive community, where everyone is welcome to share their love of games. If you have any questions, contact us or join our Discord server!
+home-about-body-1 = We're a student group at IST passionate about bringing people together through games of all kinds, from board games and role playing games, to card games, video games, and more. We organise events such as Game Nights, TTRPG campaigns and one-shots, tournaments, and other activities. In addition, we strive to foster a welcoming and inclusive community, where everyone is welcome to share their love of games. To keep up with our events, join our community on Discord and follow us on Instagram! If you have any questions, feel free to contact us by email or through our socials.
 home-discord-invite = Join us on Discord to chat, participate in activities, and engage with the community!
 
 home-events-title = Recurring events
 home-gamenights-title = Game Nights
 home-gamenights-body =
-  Join one of our bi-weekly Game Nights! Mark your calendars for the next date and come play Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength, and more. No registration is required, and you can bring your own group or come on your own. The events are open to veterans and beginners alike (even with no experience!).
+  Come hang out at our weekly Game Nights! Mark your calendars for the next date and come play Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength, and more. No registration is required, and you can bring your own group or come on your own. The events are open to veterans and beginners alike (even with no experience!).
   Check our collection by clicking on the button below.
 home-game-collection = Game collection
 home-oneshots-title = D&D One-Shots
@@ -47,7 +47,7 @@ gestcon-title = GESTCon — Board Game Convention
 gestcon-description = Board game convention organized by GEST at Instituto Superior Técnico.
 gestcon-hero-alt = GESTCon banner
 gestcon-about-body =
-  GESTCon is a Board Game convention organized by GEST, a board gamers group of Instituto Superior Técnico.
+  GESTCon is a Board Game convention organized by GEST, a students group of IST dedicated to tabletop games and more.
   The first GESTCon happened on the 9th, 10th and 11th of January 2026 and it was the first event of this type in Lisbon since 2019! We had hundreds of board games, classic and new, played between friends and family over three days.
 gestcon-gallery-title = Gallery
 gestcon-ludoteca-left-alt = GESTCon game library
