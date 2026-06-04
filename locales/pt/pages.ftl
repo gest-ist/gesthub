@@ -47,7 +47,7 @@ gestcon-title = GESTCon — Convenção de Jogos de Tabuleiro
 gestcon-description = Convenção de jogos de tabuleiro organizada pelo GEST no Instituto Superior Técnico.
 gestcon-hero-alt = Banner da GESTCon
 gestcon-about-body =
-  A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de estudantes do IST dedicado a jogos de mesa e mais.
+  A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de estudantes do IST dedicado aos jogos de mesa e aos demais tipos de jogos.
   A primeira edição deste evento realizou-se a 9, 10 e 11 de Janeiro de 2026 e foi o primeiro evento deste tipo em Lisboa desde 2019! Tivemos centenas de jogos de tabuleiro, clássicos e novidades, jogados entre amigos e família ao longo de três dias de convenção!
 gestcon-gallery-title = Galeria
 gestcon-ludoteca-left-alt = Ludoteca da GESTCon
