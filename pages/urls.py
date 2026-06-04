@@ -32,6 +32,8 @@ ROUTES = {
 
 urlpatterns = [
     path("calendar/embed/", views.calendar_embed, name="calendar_embed"),
+    path("pt/calendar/embed/", views.calendar_embed, name="pt-calendar_embed"),
+    path("en/calendar/embed/", views.calendar_embed, name="en-calendar_embed"),
     *localized_patterns(ROUTES),
     path("gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("gestcon/2026/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
