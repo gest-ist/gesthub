@@ -22,6 +22,20 @@ class Person(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    """A localized label used to group/filter inventory items."""
+
+    slug = models.SlugField(max_length=100, unique=True)
+    name_pt = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100, blank=True)
+
+    class Meta:
+        ordering = ["name_pt"]
+
+    def __str__(self) -> str:
+        return self.name_pt
+
+
 class Item(models.Model):
     """A catalogue entry for a thing GEST can own, lend, or generally track."""
 
@@ -35,8 +49,10 @@ class Item(models.Model):
     type = models.CharField(max_length=32, choices=Type, db_index=True)
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    thumbnail_ref = models.CharField(max_length=500, blank=True)
     image_ref = models.CharField(max_length=500, blank=True)
     notes = models.TextField(blank=True)
+    tags = models.ManyToManyField(Tag, blank=True, related_name="items")
 
     class Meta:
         ordering = ["name"]
@@ -52,6 +68,7 @@ class ItemCopy(models.Model):
     quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
     owner = models.ForeignKey(Person, on_delete=models.PROTECT, related_name="owned_copies")
     location = models.CharField(max_length=200, blank=True)
+    hidden = models.BooleanField(default=True)
     notes = models.TextField(blank=True)
 
     class Meta:
