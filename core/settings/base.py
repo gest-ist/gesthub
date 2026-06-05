@@ -38,7 +38,7 @@ def database_from_url(value: str) -> dict[str, Any]:
         "PASSWORD": unquote(parsed.password or ""),
         "HOST": parsed.hostname or "",
         "PORT": str(parsed.port or ""),
-        "OPTIONS": options or None,
+        "OPTIONS": options,
     }
 
 
