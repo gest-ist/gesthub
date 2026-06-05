@@ -26,10 +26,14 @@ manage = "core.cli:manage"
 package = true
 
 [tool.setuptools.packages.find]
-include = ["core*", "pages*"]
+include = ["core*", "inventory*", "pages*"]
 
 [dependency-groups]
-dev = ["ruff>=0.14,<0.15", "ty>=0.0.1a0"]
+dev = [
+    "django-stubs>=6.0.5",
+    "ruff>=0.14,<0.15",
+    "ty>=0.0.1a0",
+]
 
 [tool.ruff]
 line-length = 100

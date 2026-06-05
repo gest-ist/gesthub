@@ -47,17 +47,23 @@ DEBUG = env_bool("DJANGO_DEBUG")
 ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
+    "django.contrib.contenttypes",
+    "django.contrib.auth",
+    "django.contrib.sessions",
     "django.contrib.staticfiles",
     "django_ftl.apps.DjangoFtlConfig",
+    "inventory.apps.InventoryConfig",
     "pages.apps.PagesConfig",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "core.fluent.PathLanguageMiddleware",
     "django_ftl.middleware.activate_from_request_language_code",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
