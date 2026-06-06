@@ -31,6 +31,8 @@
   --nav-pressed-color: color-mix(in srgb, var(--nav-footer-color) 90%, var(--gest-black));
   --nav-dpressed-color: color-mix(in srgb, var(--nav-pressed-color) 90%, var(--gest-black));
 
+  --framing-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
   --nav-slide-duration: 0.2s;
   --nav-slide-easing: ease-in-out;
   --nav-height: 3.25rem;
@@ -103,6 +105,13 @@ h3 {
 body>header,
 body>footer {
   background-color: var(--nav-footer-color);
+}
+
+body>header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--framing-shadow);
 }
 
 header>nav {
@@ -257,7 +266,7 @@ header>nav {
     top: 100%;
     background-color: var(--nav-pressed-color);
     pointer-events: none;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--framing-shadow);
 
     visibility: hidden;
     clip-path: inset(0 0 100% 0);
@@ -367,7 +376,7 @@ header>nav {
     list-style: none;
     border-radius: 0 0 0.45rem 0.45rem;
     background-color: var(--nav-footer-color);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--framing-shadow);
   }
 
   &>menu {
@@ -387,6 +396,7 @@ header>nav {
 }
 
 main>section {
+  scroll-margin-top: var(--nav-height);
 
   /* Page-level bands; nested sections are left alone. */
   &:not(#hero) {
