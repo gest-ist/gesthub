@@ -36,7 +36,6 @@ body {
   h1 {
     margin: 0;
     max-width: none;
-    text-align: center;
     font-size: 1.25rem;
   }
 
@@ -144,7 +143,6 @@ body {
       margin: 0;
       font-size: 1rem;
       line-height: 1.1;
-      text-align: center;
     }
 
     time {

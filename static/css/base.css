@@ -80,7 +80,6 @@ a {
   text-underline-offset: 0.18em;
 }
 
-p,
 h1,
 h2,
 h3,
@@ -89,9 +88,11 @@ h5,
 h6 {
   max-width: 800px;
   margin-inline: auto;
+  text-align: center;
 }
 
 p {
+  max-width: 800px;
   margin: auto;
   white-space: pre-line;
 }
@@ -406,7 +407,6 @@ main>section {
   h2 {
     margin: 0 auto 1.5rem;
     max-width: 800px;
-    text-align: center;
     line-height: 1.125;
     font-size: 2rem;
   }
@@ -568,10 +568,16 @@ button.raised,
 
 .dpurple {
   background-color: var(--gest-dark-purple) !important;
+  color: var(--gest-white) !important;
+
+  .raised {
+    --raised-shadow-color: rgba(0, 0, 0, 0.75);
+  }
 }
 
 .lpurple {
   background-color: var(--gest-light-purple) !important;
+  color: var(--gest-white) !important;
 }
 
 .pink {
@@ -592,6 +598,7 @@ button.raised,
 
 .red {
   background-color: var(--gest-red) !important;
+  color: var(--gest-white) !important;
 }
 
 .blue {
@@ -604,4 +611,8 @@ button.raised,
   &.black {
     border: 1px solid var(--gest-white) !important;
   }
+}
+
+.white-fg {
+  color: var(--gest-white) !important;
 }
