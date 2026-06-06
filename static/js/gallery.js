@@ -1,7 +1,7 @@
 for (const button of document.querySelectorAll("[data-gallery-scroll]")) {
   button.addEventListener("click", () => {
     const gallery = button.closest("#gallery-carousel");
-    const strip = gallery?.querySelector("[data-gallery-strip]");
+    const strip = gallery?.querySelector(".gallery-strip");
     const direction = Number(button.dataset.galleryScroll);
 
     if (!strip || !direction) {

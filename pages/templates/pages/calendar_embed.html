@@ -12,9 +12,9 @@
     <main id="calendar-embed">
       {% if calendar_available %}
         <header>
-          <a class="card hover-drop" href="?year={{ previous_year }}&amp;month={{ previous_month }}" aria-label="{% ftlmsg 'calendar-previous-month' %}">&#10094;</a>
+          <a role="button" class="raised outlined gray" href="?year={{ previous_year }}&amp;month={{ previous_month }}" aria-label="{% ftlmsg 'calendar-previous-month' %}">&#10094;</a>
           <h1>{% ftlmsg month_name_key %} {{ year }}</h1>
-          <a class="card hover-drop" href="?year={{ next_year }}&amp;month={{ next_month }}" aria-label="{% ftlmsg 'calendar-next-month' %}">&#10095;</a>
+          <a role="button" class="raised outlined gray" href="?year={{ next_year }}&amp;month={{ next_month }}" aria-label="{% ftlmsg 'calendar-next-month' %}">&#10095;</a>
         </header>
 
         <section id="calendar-scroll" aria-label="{% ftlmsg 'calendar-view-label' %}">
@@ -37,7 +37,7 @@
                     <td {% if not day.current_month %}class="muted"{% endif %}>
                       <time datetime="{{ day.date|date:'Y-m-d' }}">{{ day.date.day }}</time>
                       {% for event in day.events %}
-                        <p class="card hover-drop gray">
+                        <p class="gray card">
                           <strong>{{ event.title }}</strong>
                           {% if event.details %}
                             <span>{{ event.details }}</span>

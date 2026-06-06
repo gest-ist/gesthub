@@ -17,68 +17,69 @@ body {
   grid-template-rows: auto minmax(0, 1fr) auto;
   padding: 0.5rem;
   background-color: var(--gest-white);
-}
 
-#calendar-embed header {
-  display: grid;
-  grid-template-columns: 2.25rem 1fr 2.25rem;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
+  header {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr 2.25rem;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 
-#calendar-embed h1 {
-  margin: 0;
-  max-width: none;
-  text-align: center;
-  font-size: 1.25rem;
-}
+    a {
+      min-height: 2.25rem;
+      display: grid;
+      place-items: center;
+      padding: 0;
+    }
+  }
 
-#calendar-embed header a {
-  min-height: 2.25rem;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border-radius: 0.45rem;
-  background-color: var(--gest-white);
-  box-shadow: 0.25rem 0.25rem rgba(0, 0, 0, 0.15);
-  text-decoration: none;
-}
+  h1 {
+    margin: 0;
+    max-width: none;
+    text-align: center;
+    font-size: 1.25rem;
+  }
 
-#calendar-embed header a:hover,
-#calendar-embed header a:focus-visible {
-  box-shadow: 0.15rem 0.15rem rgba(0, 0, 0, 0.15);
-}
+  &>#calendar-scroll {
+    min-height: 0;
+    overflow: auto;
+    padding: 0.5rem 1rem;
+  }
 
-#calendar-embed > #calendar-scroll {
-  min-height: 0;
-  overflow: auto;
-  padding: 0.5rem 1rem;
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
 
-#calendar-embed table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
+  th {
+    padding: 0.35rem;
+    font-weight: 600;
+  }
 
-#calendar-embed th {
-  padding: 0.35rem;
-  font-weight: 600;
-}
+  td {
+    height: 5.5rem;
+    vertical-align: top;
+    padding: 0.35rem;
+    border: 1px solid rgba(29, 23, 23, 0.25);
+  }
 
-#calendar-embed td {
-  height: 5.5rem;
-  vertical-align: top;
-  padding: 0.35rem;
-  border: 1px solid rgba(29, 23, 23, 0.25);
-}
+  time {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 
-#calendar-embed time {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.5rem;
+  }
+
+  .muted {
+    opacity: 0.45;
+  }
 }
 
 #calendar-agenda {
@@ -91,35 +92,24 @@ body {
   max-width: none;
   padding: 0.3rem;
   border-radius: 0.45rem;
-  box-shadow: 0.18rem 0.18rem rgba(0, 0, 0, 0.15);
   font-size: 0.66rem;
   line-height: 1.1;
   white-space: normal;
 }
 
-#calendar-embed td .card:hover,
-#calendar-embed td .card:focus-visible,
-#calendar-agenda .card:hover,
-#calendar-agenda .card:focus-visible {
-  box-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 0.15);
-}
+#calendar-embed td,
+#calendar-agenda {
 
-#calendar-embed td strong,
-#calendar-embed td span,
-#calendar-agenda strong,
-#calendar-agenda span {
-  display: block;
-}
+  strong,
+  span {
+    display: block;
+  }
 
-#calendar-embed td span,
-#calendar-agenda span {
-  margin-top: 0.2rem;
-  font-size: 0.6rem;
-  font-weight: 400;
-}
-
-#calendar-embed .muted {
-  opacity: 0.45;
+  span {
+    margin-top: 0.2rem;
+    font-size: 0.6rem;
+    font-weight: 400;
+  }
 }
 
 #calendar-unavailable {
@@ -127,12 +117,6 @@ body {
   place-items: center;
   margin: 0;
   text-align: center;
-}
-
-#calendar-embed footer {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 0.5rem;
 }
 
 #calendar-origin {
@@ -148,33 +132,33 @@ body {
   #calendar-agenda {
     display: grid;
     gap: 0.85rem;
-  }
 
-  #calendar-agenda article {
-    display: grid;
-    grid-template-columns: 2.25rem minmax(0, 1fr);
-    gap: 0.55rem;
-    align-items: start;
-  }
+    article {
+      display: grid;
+      grid-template-columns: 2.25rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+    }
 
-  #calendar-agenda h2 {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.1;
-    text-align: center;
-  }
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.1;
+      text-align: center;
+    }
 
-  #calendar-agenda time {
-    margin: 0;
-  }
+    time {
+      margin: 0;
+    }
 
-  #calendar-agenda .card {
-    margin: 0;
-    font-size: 0.75rem;
-  }
+    .card {
+      margin: 0;
+      font-size: 0.75rem;
+    }
 
-  #calendar-agenda span {
-    font-size: 0.68rem;
+    span {
+      font-size: 0.68rem;
+    }
   }
 
   #calendar-agenda-empty {

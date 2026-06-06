@@ -3,34 +3,34 @@
   position: relative;
   overflow: hidden;
   background-color: var(--gest-blue);
-}
 
-#hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow:
-    inset 0 5px 5px rgba(0, 0, 0, 0.2),
-    inset 0 -5px 5px rgba(0, 0, 0, 0.2);
-}
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow:
+      inset 0 5px 5px rgba(0, 0, 0, 0.2),
+      inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+  }
 
-#hero img {
-  display: block;
-  width: 100%;
-  margin-block: -2rem;
+  img {
+    display: block;
+    width: 100%;
+    margin-block: -2rem;
+  }
 }
 
 @media (max-width: 1200px) {
   #hero {
     height: clamp(15rem, 40vw, 20rem);
-  }
 
-  #hero img {
-    height: 100%;
-    margin-block: 0;
-    object-fit: cover;
-    object-position: center;
+    img {
+      height: 100%;
+      margin-block: 0;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 
@@ -46,71 +46,57 @@
   opacity: 0.6;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
-}
 
-#discord-invite:hover,
-#discord-invite:focus-visible {
-  opacity: 1;
-}
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
 
-#discord-invite p {
-  margin: 0;
-  max-width: none;
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
-}
+  p {
+    margin: 0;
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+  }
 
-#discord-invite-icon {
-  display: inline-flex;
-  width: 3rem;
-  height: 3rem;
-  margin-inline: auto;
-  margin-bottom: 0;
-}
-
-#discord-invite-icon .social-icon {
-  width: 100%;
-  height: 100%;
-}
-
-#events .card,
-#calendar .card,
-#contact-links .card {
-  background-color: var(--gest-white);
+  .social-icon {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
 }
 
 #calendar>.card {
   padding-bottom: 0.5rem;
 }
 
-#event-cards article {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+#event-cards {
+  article {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-#event-cards h3 {
-  margin: 0 0 1.5rem;
-  text-align: left;
-}
+  h3 {
+    margin: 0 0 1.5rem;
+    text-align: left;
+  }
 
-#event-cards footer {
-  margin-top: auto;
-  padding-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-}
+  footer {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
 
-#event-cards i {
-  opacity: 0.5;
-}
-
-#gallery,
-#gallery h2 {
-  color: var(--gest-white);
+  i {
+    opacity: 0.5;
+  }
 }
 
 #contact p {
@@ -123,16 +109,16 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-}
 
-#contact-links a {
-  display: grid;
-  gap: 0.25rem;
-  text-decoration: none;
-}
+  a {
+    display: grid;
+    gap: 0.25rem;
+    text-decoration: none;
+  }
 
-#contact-links span {
-  opacity: 0.72;
+  span {
+    opacity: 0.72;
+  }
 }
 
 .contact-link-label {

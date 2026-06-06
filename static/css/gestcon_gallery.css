@@ -6,8 +6,8 @@ body {
   min-height: 100%;
   background-color: var(--gest-black);
   color: var(--gest-white);
-}
 
-#gallery h2 {
-  color: var(--gest-white);
+  h2 {
+    color: var(--gest-white);
+  }
 }

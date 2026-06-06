@@ -17,13 +17,13 @@
 {% endblock %}
 
 {% block content %}
-  <section id="gallery">
+  <section id="gallery" class="black">
     <div class="container">
       <h2>{% ftlmsg 'gestcon-gallery-title' %}</h2>
 
       <div class="gallery-grid" aria-label="{% ftlmsg 'gestcon-gallery-label' %}">
         {% for image in gallery %}
-          <a class="gallery-item hover-drop" href="{{ image.url }}" data-gallery-full="{{ image.url }}" data-gallery-alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}data-gallery-width="{{ image.width }}" data-gallery-height="{{ image.height }}"{% endif %}>
+          <a class="gallery-item raised card hover-drop" href="{{ image.url }}" data-gallery-full="{{ image.url }}" data-gallery-alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}data-gallery-width="{{ image.width }}" data-gallery-height="{{ image.height }}"{% endif %}>
             <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy" decoding="async">
           </a>
         {% endfor %}
