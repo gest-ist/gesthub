@@ -1,0 +1,101 @@
+{% load ftl inventory_format %}
+
+{% if entries %}
+  <div class="collection-grid">
+    {% for entry in entries %}
+      {% with item=entry.item %}
+        <article class="collection-item">
+          <button class="collection-card raised {{ card_color }} card" type="button" data-modal-template="{{ kind }}-{{ item.pk }}" data-color="{{ card_color }}">
+            <figure{% if not entry.available %} class="unavailable"{% endif %}>
+              {% if entry.thumbnail_url %}
+                <img src="{{ entry.thumbnail_url }}" alt="{{ item.name }}" loading="lazy" decoding="async">
+              {% else %}
+                <span class="image-placeholder">{% ftlmsg 'collection-no-image' %}</span>
+              {% endif %}
+
+              {% if not entry.available %}
+                <figcaption>{% ftlmsg 'collection-unavailable' %}</figcaption>
+              {% endif %}
+
+              {% if kind == "boardgame" %}
+                {% if item.min_players or item.max_players %}
+                  <span class="item-chip players" aria-label="{% ftlmsg 'collection-players' %}">♟ {{ item.min_players|default:"?" }}{% if item.max_players and item.max_players != item.min_players %}–{{ item.max_players }}{% endif %}</span>
+                {% endif %}
+                {% if item.min_playtime_minutes or item.max_playtime_minutes %}
+                  <span class="item-chip duration" aria-label="{% ftlmsg 'collection-duration' %}">⧖ {{ item.min_playtime_minutes|default:"?" }}{% if item.max_playtime_minutes and item.max_playtime_minutes != item.min_playtime_minutes %}–{{ item.max_playtime_minutes }}{% endif %}m</span>
+                {% endif %}
+              {% elif item.year %}
+                <span class="item-chip year">{{ item.year }}</span>
+              {% endif %}
+            </figure>
+            <strong>{{ item.name }}</strong>
+          </button>
+
+          <template id="{{ kind }}-{{ item.pk }}">
+            <header>
+              {% if entry.image_url or entry.thumbnail_url %}
+                <figure class="collection-modal-image">
+                  <img src="{% firstof entry.image_url entry.thumbnail_url %}" alt="{{ item.name }}">
+                </figure>
+              {% endif %}
+
+              <h2 id="collection-modal-title">{{ item.name }}</h2>
+
+              {% if item.tags.all %}
+                <ul class="item-tags" aria-label="{% ftlmsg 'collection-tags' %}">
+                  {% for tag in item.tags.all %}
+                    <li>{% if current_language == "en" and tag.name_en %}{{ tag.name_en }}{% else %}{{ tag.name_pt }}{% endif %}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              {# TODO: add the boardgame publication year near the title as a compact metadata chip. #}
+              <p id="item-state" data-state="{% if entry.available %}available{% else %}unavailable{% endif %}">
+                {% if entry.available %}
+                  <span class="item-state-icon" aria-hidden="true">✓</span>
+                  <span>{% ftlmsg 'collection-available' %}{% if entry.ceded_to_gest %} {% ftlmsg 'collection-ceded-to-gest' %}{% endif %}</span>
+                {% else %}
+                  <span class="item-state-icon" aria-hidden="true">×</span>
+                  <span>{% ftlmsg 'collection-unavailable' %}</span>
+                {% endif %}
+              </p>
+            </header>
+
+            <dl>
+              {% if kind == "boardgame" %}
+                {% if item.weight %}
+                  <div><dt>{% ftlmsg 'collection-weight' %}</dt><dd>{{ item.weight|localized_decimal:current_language }}</dd></div>
+                {% endif %}
+                {% if item.rating %}
+                  <div><dt>{% ftlmsg 'collection-rating' %}</dt><dd>{{ item.rating|localized_decimal:current_language }}</dd></div>
+                {% endif %}
+                {% if item.min_players or item.max_players %}
+                  <div><dt>{% ftlmsg 'collection-players' %}</dt><dd>{{ item.min_players|default:"?" }}{% if item.max_players and item.max_players != item.min_players %}–{{ item.max_players }}{% endif %}{% if item.opt_players %} {% ftlmsg 'collection-best-with' count=item.opt_players %}{% endif %}</dd></div>
+                {% endif %}
+                {% if item.min_playtime_minutes or item.max_playtime_minutes %}
+                  <div><dt>{% ftlmsg 'collection-duration' %}</dt><dd>{{ item.min_playtime_minutes|default:"?" }}{% if item.max_playtime_minutes and item.max_playtime_minutes != item.min_playtime_minutes %}–{{ item.max_playtime_minutes }}{% endif %} min</dd></div>
+                {% endif %}
+              {% else %}
+                <div><dt>{% ftlmsg 'collection-system' %}</dt><dd>{{ item.get_system_display }}</dd></div>
+                {% if item.year %}
+                  <div><dt>{% ftlmsg 'collection-year' %}</dt><dd>{{ item.year }}</dd></div>
+                {% endif %}
+              {% endif %}
+            </dl>
+
+            {% if kind == "boardgame" %}
+              <footer>
+                {% if item.bgg_id %}
+                  <a role="button" class="raised dpurple" href="https://boardgamegeek.com/boardgame/{{ item.bgg_id }}" target="_blank" rel="noopener noreferrer">{% ftlmsg 'collection-bgg-link' %} ↗</a>
+                {% endif %}
+                <button disabled type="button" class="raised dgreen white-fg">{% ftlmsg 'collection-request-gamenight' %}</button>
+              </footer>
+            {% endif %}
+          </template>
+        </article>
+      {% endwith %}
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="empty">{% ftlmsg 'collection-empty' %}</p>
+{% endif %}

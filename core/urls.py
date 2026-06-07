@@ -9,6 +9,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path("", RedirectView.as_view(url="/pt/", permanent=False)),
+    path("", include("inventory.urls")),
     path("", include("pages.urls")),
 ]
 

@@ -7,6 +7,8 @@ from django.utils import timezone
 class Person(models.Model):
     """A real-world person known to the inventory system."""
 
+    GEST_ID = 0
+
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -20,6 +22,10 @@ class Person(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def is_gest(self) -> bool:
+        return self.pk == self.GEST_ID
 
 
 class Tag(models.Model):
@@ -78,6 +84,10 @@ class ItemCopy(models.Model):
     def __str__(self) -> str:
         return f"{self.quantity} x {self.item}"
 
+    @property
+    def is_owned_by_gest(self) -> bool:
+        return self.owner_id == Person.GEST_ID
+
 
 class BoardGame(Item):
     """An item subtype for board games and board-game expansions."""
@@ -87,6 +97,7 @@ class BoardGame(Item):
     weight = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
     min_players = models.PositiveSmallIntegerField(null=True, blank=True)
     max_players = models.PositiveSmallIntegerField(null=True, blank=True)
+    opt_players = models.PositiveSmallIntegerField(null=True, blank=True)
     min_playtime_minutes = models.PositiveSmallIntegerField(null=True, blank=True)
     max_playtime_minutes = models.PositiveSmallIntegerField(null=True, blank=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)

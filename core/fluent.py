@@ -144,6 +144,7 @@ def context(request):
         },
         "localized_urls": {
             "home": route_url("home", language),
+            "collection": route_url("collection", language),
             "gestcon": route_url("gestcon", language),
             "gestcon_gallery": route_url("gestcon_gallery", language),
         },

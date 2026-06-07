@@ -63,3 +63,53 @@ gestcon-gallery-url = /en/gestcon/2026/gallery/
 gestcon-gallery-page-title = GESTCon — Gallery
 gestcon-gallery-description = Photos and moments from GESTCon 2026.
 gestcon-gallery-label = GESTCon photos
+
+collection-title = Library
+collection-description = Board games and TTRPG material available in GEST's library.
+collection-about =
+  This is our library! Here you can see all the board games and TTRPG material we have available.
+  Right now, we have <strong>{ $bg_count }</strong> { collection-about.boardgames }{ collection-about.bg-unavailable } and <strong>{ $rpg_count }</strong> { collection-about.rpg-items }{ collection-about.rpg-unavailable }.
+  .boardgames =
+    { $bg_count ->
+      [one] board game
+     *[other] board games
+    }
+  .rpg-items =
+    { $rpg_count ->
+      [one] RPG item
+     *[other] RPG items
+    }
+  .bg-unavailable =
+    { $bg_unavailable ->
+      [0] {""}
+     *[other] { " " }{ $bg_unavailable ->
+        [one] ({ $bg_unavailable } of which is unavailable)
+       *[other] ({ $bg_unavailable } of which are unavailable)
+      }
+    }
+  .rpg-unavailable =
+    { $rpg_unavailable ->
+      [0] {""}
+     *[other] { " " }{ $rpg_unavailable ->
+        [one] ({ $rpg_unavailable } of which is unavailable)
+       *[other] ({ $rpg_unavailable } of which are unavailable)
+      }
+    }
+collection-boardgames-title = Board games
+collection-ttrpg-title = Tabletop RPGs
+collection-empty = There are no public items in this category yet.
+collection-modal-close = Close details
+collection-no-image = No image
+collection-available = Available
+collection-ceded-to-gest = (lent to GEST)
+collection-unavailable = Unavailable
+collection-tags = Tags
+collection-year = Year
+collection-system = System
+collection-weight = Complexity
+collection-rating = Rating
+collection-players = Players
+collection-best-with = (best with { $count })
+collection-duration = Duration
+collection-bgg-link = View in BGG
+collection-request-gamenight = Request for the next Game Night

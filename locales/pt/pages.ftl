@@ -63,3 +63,65 @@ gestcon-gallery-url = /pt/gestcon/2026/galeria/
 gestcon-gallery-page-title = GESTCon — Galeria
 gestcon-gallery-description = Fotografias e momentos da GESTCon 2026.
 gestcon-gallery-label = Fotografias da GESTCon
+
+collection-title = Ludoteca
+collection-description = Jogos de tabuleiro e material de TTRPG disponíveis na ludoteca do GEST.
+collection-about =
+  Eis a nossa ludoteca! Aqui podes ver todos os jogos e material de TTRPG que temos disponíveis.
+  De momento, temos <strong>{ $bg_count }</strong> { collection-about.boardgames }{ collection-about.bg-unavailable } e <strong>{ $rpg_count }</strong> { collection-about.rpg-items }{ collection-about.rpg-unavailable }.
+  .boardgames =
+    { $bg_count ->
+      [one] jogo de tabuleiro
+     *[other] jogos de tabuleiro
+    }
+  .rpg-items =
+    { $rpg_count ->
+      [one] item de RPG
+     *[other] itens de RPG
+    }
+  .bg-unavailable =
+    { $bg_unavailable ->
+      [0] {""}
+     *[other] { $bg_count ->
+        [one] { " " }(do qual { $bg_unavailable } { $bg_unavailable ->
+          [one] não está disponível
+         *[other] não estão disponíveis
+        })
+       *[other] { " " }(dos quais { $bg_unavailable } { $bg_unavailable ->
+          [one] não está disponível
+         *[other] não estão disponíveis
+        })
+      }
+    }
+  .rpg-unavailable =
+    { $rpg_unavailable ->
+      [0] {""}
+     *[other] { $rpg_count ->
+        [one] { " " }(do qual { $rpg_unavailable } { $rpg_unavailable ->
+          [one] não está disponível
+         *[other] não estão disponíveis
+        })
+       *[other] { " " }(dos quais { $rpg_unavailable } { $rpg_unavailable ->
+          [one] não está disponível
+         *[other] não estão disponíveis
+        })
+      }
+    }
+collection-boardgames-title = Jogos de tabuleiro
+collection-ttrpg-title = Narrativos
+collection-empty = Ainda não há itens públicos nesta categoria.
+collection-modal-close = Fechar detalhes
+collection-no-image = Sem imagem
+collection-available = Disponível
+collection-ceded-to-gest = (cedido ao GEST)
+collection-unavailable = Indisponível
+collection-tags = Etiquetas
+collection-year = Ano
+collection-system = Sistema
+collection-weight = Complexidade
+collection-rating = Classificação
+collection-players = Jogadores
+collection-best-with = (melhor a { $count })
+collection-duration = Duração
+collection-bgg-link = Ver no BGG
+collection-request-gamenight = Pedir para a próxima Game Night

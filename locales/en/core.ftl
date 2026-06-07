@@ -9,6 +9,7 @@ nav-about = About Us
 nav-events = Events
 nav-calendar = Calendar
 nav-gallery = Gallery
+nav-collection = Library
 nav-gestcon = GESTCon
 
 month-1 = January

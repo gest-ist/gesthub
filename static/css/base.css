@@ -27,6 +27,10 @@
 
   --text-color: var(--gest-black);
   --bg-color: var(--gest-white);
+  --surface-fg: var(--text-color);
+  --surface-muted-fg: color-mix(in srgb, var(--surface-fg) 65%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--surface-fg) 12%, transparent);
+  --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-black));
   --nav-footer-color: var(--gest-gray);
   --nav-pressed-color: color-mix(in srgb, var(--nav-footer-color) 90%, var(--gest-black));
   --nav-dpressed-color: color-mix(in srgb, var(--nav-pressed-color) 90%, var(--gest-black));
@@ -466,7 +470,6 @@ body>footer {
 a[role="button"],
 input[type="button"],
 button {
-  color: var(--gest-black);
   font-family: var(--font-family);
   font-size: 1rem;
   line-height: 1.5;
@@ -526,6 +529,7 @@ button.raised,
   border: 1px solid var(--gest-black);
   border-radius: 0.75rem;
   background-color: var(--gest-white);
+  color: var(--surface-fg);
 
   &.raised {
     --own-raised-shadow-delta: var(--card-raised-shadow-delta);
@@ -548,6 +552,8 @@ button.raised,
 }
 
 .black {
+  --surface-fg: var(--gest-white);
+
   background-color: var(--gest-black) !important;
   color: var(--gest-white) !important;
 
@@ -557,18 +563,29 @@ button.raised,
 }
 
 .white {
+  --surface-fg: var(--gest-black);
+  --surface-chip-bg: var(--gest-gray);
+
   background-color: var(--gest-white) !important;
+  color: var(--gest-black) !important;
 }
 
 .gray {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-gray) !important;
+  color: var(--gest-black) !important;
 }
 
 .brown {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-brown) !important;
 }
 
 .dpurple {
+  --surface-fg: var(--gest-white);
+
   background-color: var(--gest-dark-purple) !important;
   color: var(--gest-white) !important;
 
@@ -578,32 +595,48 @@ button.raised,
 }
 
 .lpurple {
+  --surface-fg: var(--gest-white);
+  --surface-chip-bg: var(--gest-dark-purple);
+
   background-color: var(--gest-light-purple) !important;
   color: var(--gest-white) !important;
 }
 
 .pink {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-pink) !important;
 }
 
 .dgreen {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-dark-green) !important;
 }
 
 .lgreen {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-light-green) !important;
 }
 
 .yellow {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-yellow) !important;
+  color: var(--gest-black) !important;
 }
 
 .red {
+  --surface-fg: var(--gest-white);
+
   background-color: var(--gest-red) !important;
   color: var(--gest-white) !important;
 }
 
 .blue {
+  --surface-fg: var(--gest-black);
+
   background-color: var(--gest-blue) !important;
 }
 
