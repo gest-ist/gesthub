@@ -8,7 +8,7 @@ from . import views
 ROUTES = {
     "collection": (
         views.collection,
-        {"pt": "ludoteca", "en": "library"},
+        {"pt": "ludoteca", "en": "library", "es": "ludoteca"},
     ),
 }
 

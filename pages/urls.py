@@ -18,15 +18,15 @@ gestcon_view = template("pages/gestcon.html")
 ROUTES = {
     "home": (
         views.home,
-        {"pt": "", "en": ""},
+        {"pt": "", "en": "", "es": ""},
     ),
     "gestcon": (
         gestcon_view,
-        {"pt": "gestcon/2026", "en": "gestcon/2026"},
+        {"pt": "gestcon/2026", "en": "gestcon/2026", "es": "gestcon/2026"},
     ),
     "gestcon_gallery": (
         views.gestcon_gallery,
-        {"pt": "gestcon/2026/galeria", "en": "gestcon/2026/gallery"},
+        {"pt": "gestcon/2026/galeria", "en": "gestcon/2026/gallery", "es": "gestcon/2026/galeria"},
     ),
 }
 
@@ -34,6 +34,7 @@ urlpatterns = [
     path("calendar/embed/", views.calendar_embed, name="calendar_embed"),
     path("pt/calendar/embed/", views.calendar_embed, name="pt-calendar_embed"),
     path("en/calendar/embed/", views.calendar_embed, name="en-calendar_embed"),
+    path("es/calendar/embed/", views.calendar_embed, name="es-calendar_embed"),
     *localized_patterns(ROUTES),
     path("gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("gestcon/2026/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),

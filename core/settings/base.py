@@ -100,6 +100,7 @@ LANGUAGE_CODE = "pt"
 LANGUAGES = [
     ("pt", "Português"),
     ("en", "English"),
+    ("es", "Español"),
 ]
 
 TIME_ZONE = "Europe/Lisbon"
