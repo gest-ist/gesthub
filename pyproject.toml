@@ -13,6 +13,7 @@ dependencies = [
   "imagesize>=2.0.0",
   "nestedtext>=3.8",
   "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1.2.2",
   "recurring-ical-events>=3.8.2",
 ]
 

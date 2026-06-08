@@ -9,7 +9,10 @@ from collections.abc import Sequence
 
 
 def manage() -> None:
+    import dotenv
+
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.dev")
+    dotenv.load_dotenv()
 
     from django.core.management import execute_from_command_line
 
