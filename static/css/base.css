@@ -554,8 +554,9 @@ button.raised,
 .black {
   --surface-fg: var(--gest-white);
   --surface-muted-fg: color-mix(in srgb, var(--gest-white) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-black));
+  --chip-text: var(--gest-black);
 
   background-color: var(--gest-black) !important;
   color: var(--gest-white) !important;
@@ -568,8 +569,9 @@ button.raised,
 .white {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-white));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-white) !important;
   color: var(--gest-black) !important;
@@ -578,8 +580,9 @@ button.raised,
 .gray {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-gray));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-gray) !important;
   color: var(--gest-black) !important;
@@ -588,8 +591,9 @@ button.raised,
 .brown {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-brown));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-brown) !important;
 }
@@ -597,8 +601,9 @@ button.raised,
 .dpurple {
   --surface-fg: var(--gest-white);
   --surface-muted-fg: color-mix(in srgb, var(--gest-white) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-dpurple));
+  --chip-text: var(--gest-black);
 
   background-color: var(--gest-dark-purple) !important;
   color: var(--gest-white) !important;
@@ -611,8 +616,9 @@ button.raised,
 .lpurple {
   --surface-fg: var(--gest-white);
   --surface-muted-fg: color-mix(in srgb, var(--gest-white) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-lpurple));
+  --chip-text: var(--gest-black);
 
   background-color: var(--gest-light-purple) !important;
   color: var(--gest-white) !important;
@@ -621,8 +627,9 @@ button.raised,
 .pink {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-pink));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-pink) !important;
 }
@@ -630,8 +637,9 @@ button.raised,
 .dgreen {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-dgreen));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-dark-green) !important;
 }
@@ -639,8 +647,9 @@ button.raised,
 .lgreen {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-lgreen));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-light-green) !important;
 }
@@ -648,8 +657,9 @@ button.raised,
 .yellow {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-yellow));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-yellow) !important;
   color: var(--gest-black) !important;
@@ -658,8 +668,9 @@ button.raised,
 .red {
   --surface-fg: var(--gest-white);
   --surface-muted-fg: color-mix(in srgb, var(--gest-white) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-white) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-red));
+  --chip-text: var(--gest-black);
 
   background-color: var(--gest-red) !important;
   color: var(--gest-white) !important;
@@ -668,8 +679,9 @@ button.raised,
 .blue {
   --surface-fg: var(--gest-black);
   --surface-muted-fg: color-mix(in srgb, var(--gest-black) 65%, transparent);
-  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 12%, transparent);
+  --surface-chip-bg: color-mix(in srgb, var(--gest-black) 75%, transparent);
   --surface-chip-border: color-mix(in srgb, var(--surface-chip-bg) 35%, var(--gest-blue));
+  --chip-text: var(--gest-white);
 
   background-color: var(--gest-blue) !important;
 }

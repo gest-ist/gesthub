@@ -95,7 +95,7 @@
   border: 1px solid var(--surface-chip-border);
   border-radius: 0.35rem;
   background-color: var(--surface-chip-bg);
-  color: var(--surface-fg);
+  color: var(--chip-text);
   font-size: 0.68rem;
   line-height: 1.25;
   white-space: nowrap;
