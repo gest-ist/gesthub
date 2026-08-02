@@ -209,7 +209,7 @@
   padding: 0;
   border-color: var(--surface-chip-border);
   background-color: var(--surface-chip-bg);
-  color: var(--surface-fg);
+  color: var(--chip-text);
 }
 
 .collection-modal-image {
@@ -272,7 +272,7 @@
     border: 1px solid var(--surface-chip-border);
     border-radius: 999px;
     background-color: var(--surface-chip-bg);
-    color: var(--surface-fg);
+    color: var(--chip-text);
     font-size: 0.8rem;
   }
 }

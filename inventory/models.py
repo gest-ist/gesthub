@@ -93,7 +93,7 @@ class BoardGame(Item):
     """An item subtype for board games and board-game expansions."""
 
     bgg_id = models.PositiveIntegerField(null=True, blank=True, unique=True)
-    year = models.PositiveSmallIntegerField(null=True, blank=True)
+    year = models.SmallIntegerField(null=True, blank=True)
     weight = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
     min_players = models.PositiveSmallIntegerField(null=True, blank=True)
     max_players = models.PositiveSmallIntegerField(null=True, blank=True)
