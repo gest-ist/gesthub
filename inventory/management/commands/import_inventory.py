@@ -48,6 +48,7 @@ class Command(BaseCommand):
         gest = Person.objects.get(pk=Person.GEST_ID)
 
         boardgame_lookup = {}
+        pending_parents = []
 
         items_created = 0
         copies_created = 0
@@ -87,7 +88,7 @@ class Command(BaseCommand):
 
                     try:
                         bg = BoardGame.objects.get(bgg_id=to_int("bgg_id"))
-                        item = bg.item_ptr
+                        item = Item.objects.get(pk=bg.pk)
 
                     except BoardGame.DoesNotExist:
                         pass
@@ -146,7 +147,7 @@ class Command(BaseCommand):
 
                     if item.type == Item.Type.BOARD_GAME:
 
-                        bg = BoardGame.objects.create(
+                        bg = BoardGame(
                             item_ptr=item,
                             bgg_id=to_int("bgg_id"),
                             year=to_int("year"),
@@ -159,10 +160,14 @@ class Command(BaseCommand):
                             rating=to_decimal("rating"),
                         )
 
-                        boardgame_lookup[item.name] = (
-                            bg,
-                            val("parent_game"),
-                        )
+                        bg.save_base(raw=True)
+
+                        boardgame_lookup[item.name.strip().casefold()] = bg
+
+                        if val("parent_game"):
+                            pending_parents.append(
+                                (bg, val("parent_game").strip().casefold())
+                            )
 
                     #
                     # TTRPG subtype
@@ -170,10 +175,21 @@ class Command(BaseCommand):
 
                     elif item.type == Item.Type.TTRPG:
 
-                        TtrpgAsset.objects.create(
+                        asset = TtrpgAsset(
                             item_ptr=item,
                             system=val("system") or TtrpgAsset.System.OTHER,
                             year=to_int("year"),
+                        )
+                        asset.save_base(raw=True)
+
+                elif item.type == Item.Type.BOARD_GAME:
+                    bg = BoardGame.objects.get(pk=item.pk)
+
+                    boardgame_lookup[item.name.strip().casefold()] = bg
+
+                    if val("parent_game"):
+                        pending_parents.append(
+                            (bg, val("parent_game").strip().casefold())
                         )
 
                 #
@@ -210,18 +226,13 @@ class Command(BaseCommand):
         # Resolve expansions
         #
 
-        for bg, parent_name in boardgame_lookup.values():
-
-            if not parent_name:
-                continue
+        for bg, parent_name in pending_parents:
 
             parent = boardgame_lookup.get(parent_name)
 
             if parent:
-
-                bg.parent_game = parent[0]
+                bg.parent_game = parent
                 bg.save()
-
             else:
                 self.stdout.write(
                     self.style.WARNING(
