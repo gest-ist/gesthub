@@ -34,6 +34,7 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     name_pt = models.CharField(max_length=100)
     name_en = models.CharField(max_length=100, blank=True)
+    name_es = models.CharField(max_length=100, blank=True)
 
     class Meta:
         ordering = ["name_pt"]

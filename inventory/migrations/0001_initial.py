@@ -38,6 +38,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(max_length=100, unique=True)),
                 ('name_pt', models.CharField(max_length=100)),
                 ('name_en', models.CharField(blank=True, max_length=100)),
+                ('name_es', models.CharField(blank=True, max_length=100)),
             ],
             options={
                 'ordering': ['name_pt'],
