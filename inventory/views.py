@@ -58,7 +58,7 @@ def public_items(queryset):
 
 
 def collection(request):
-    boardgames = [collection_entry(item) for item in public_items(BoardGame.objects.all())]
+    boardgames = [collection_entry(item) for item in public_items(BoardGame.objects.filter(parent_game__isnull=True))]
     ttrpg_assets = [collection_entry(item) for item in public_items(TtrpgAsset.objects.all())]
 
     return render(

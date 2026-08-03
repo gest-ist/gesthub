@@ -277,6 +277,34 @@
   }
 }
 
+.expansion-list {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.expansion-button {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expansion-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .25rem;
+    width: 100%;
+}
+
+.expansion-meta {
+    display: block;
+    font-size: .85rem;
+    opacity: .8;
+    width: 100%;
+}
+
 @media (max-width: 560px) {
   .collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

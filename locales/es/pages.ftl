@@ -125,3 +125,4 @@ collection-best-with = (mejor con { $count })
 collection-duration = Duración
 collection-bgg-link = Ver en el BGG
 collection-request-gamenight = Pedir para la próxima Game Night
+collection-expansions = Expansiones
