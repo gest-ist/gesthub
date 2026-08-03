@@ -105,12 +105,21 @@ class Command(BaseCommand):
 
                 if item is None:
 
+                    bgg_id = to_int("bgg_id")
+
+                    thumbnail_ref = val("thumbnail_ref")
+                    image_ref = val("image_ref")
+
+                    if bgg_id:
+                        thumbnail_ref = f"bgimg/thmb/{bgg_id}.avif"
+                        image_ref = f"bgimg/img/{bgg_id}.avif"
+
                     item = Item.objects.create(
                         type=val("type"),
                         name=val("name"),
                         price=to_decimal("price"),
-                        thumbnail_ref=val("thumbnail_ref"),
-                        image_ref=val("image_ref"),
+                        thumbnail_ref=thumbnail_ref,
+                        image_ref=image_ref,
                         notes=val("notes"),
                     )
 
@@ -232,7 +241,7 @@ class Command(BaseCommand):
 
             if parent:
                 bg.parent_game = parent
-                bg.save()
+                bg.save(update_fields=["parent_game"])
             else:
                 self.stdout.write(
                     self.style.WARNING(
