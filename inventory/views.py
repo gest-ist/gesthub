@@ -59,13 +59,22 @@ def public_items(queryset):
 
 def collection(request):
     boardgames = [collection_entry(item) for item in public_items(BoardGame.objects.filter(parent_game__isnull=True))]
+    recommended_boardgames = [
+        entry for entry in boardgames
+        if entry.item.tags.filter(slug="recommended").exists()
+    ]
+    regular_boardgames = [
+        entry for entry in boardgames
+        if entry not in recommended_boardgames
+    ]
     ttrpg_assets = [collection_entry(item) for item in public_items(TtrpgAsset.objects.all())]
 
     return render(
         request,
         "inventory/collection.html",
         {
-            "boardgames": boardgames,
+            "boardgames": regular_boardgames,
+            "recommended_boardgames": recommended_boardgames,
             "ttrpg_assets": ttrpg_assets,
             "boardgame_count": len(boardgames),
             "ttrpg_count": len(ttrpg_assets),

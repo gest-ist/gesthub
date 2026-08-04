@@ -305,6 +305,42 @@
     width: 100%;
 }
 
+.collection-featured {
+  margin-bottom: 1.25rem;
+}
+
+.collection-featured h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  color: var(--gest-white);
+}
+
+.collection-card.gray {
+  background-color: var(--gest-gray) !important;
+  color: var(--gest-black) !important;
+}
+
+.collection-card figure {
+  position: relative;
+}
+
+.recommended-banner {
+  position: absolute;
+  left: 0.45rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0 0 999px 999px;
+  background: var(--gest-gray);
+  color: var(--gest-black);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 560px) {
   .collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -27,6 +27,13 @@
   <section class="dgreen">
     <div class="container">
       <h2>{% ftlmsg 'collection-boardgames-title' %}</h2>
+
+      {% if recommended_boardgames %}
+        <div class="collection-featured">
+          {% include "inventory/partials/item_grid.html" with entries=recommended_boardgames kind="boardgame" card_color="gray" %}
+        </div>
+      {% endif %}
+
       {% include "inventory/partials/item_grid.html" with entries=boardgames kind="boardgame" card_color="black" %}
     </div>
   </section>

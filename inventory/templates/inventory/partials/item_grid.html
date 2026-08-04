@@ -7,6 +7,14 @@
         <article class="collection-item">
           <button class="collection-card raised {{ card_color }} card" type="button" data-modal-template="{{ kind }}-{{ item.pk }}" data-color="{{ card_color }}">
             <figure{% if not entry.available %} class="unavailable"{% endif %}>
+              {% if item.tags.all %}
+                {% for tag in item.tags.all %}
+                  {% if tag.slug == "recommended" %}
+                    <span class="yellow recommended-banner">★</span>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
               {% if entry.thumbnail_url %}
                 <img src="{{ entry.thumbnail_url }}" alt="{{ item.name }}" loading="lazy" decoding="async">
               {% else %}
@@ -28,6 +36,7 @@
                 <span class="item-chip year">{{ item.year }}</span>
               {% endif %}
             </figure>
+
             <strong>{{ item.name }}</strong>
           </button>
 
