@@ -79,14 +79,18 @@ def parse_args() -> argparse.Namespace:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter, epilog=EXAMPLES
     )
 
-    parser.add_argument("--data", type=Path, help="Path to JSONL containing game data")
+    parser.add_argument(
+        "--data", type=Path, metavar="PATH", help="Path to JSONL containing game data"
+    )
     parser.add_argument(
         "--fetch-data",
         action="store_true",
         help="Fetch game data for the BGG IDs passed through stdin, and write to --data path",
     )
 
-    parser.add_argument("--raw-images", type=Path, help="Path to directory containing raw images")
+    parser.add_argument(
+        "--raw-images", type=Path, metavar="PATH", help="Path to directory containing raw images"
+    )
     parser.add_argument(
         "--fetch-images",
         action="store_true",
@@ -94,17 +98,24 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "--final-images", type=Path, help="Path to directory containing the optimized images"
+        "--final-images",
+        type=Path,
+        metavar="PATH",
+        help="Path to directory containing the optimized images",
     )
-    parser.add_argument("--final-format", default=FINAL_FORMAT, help="The final image format")
+    parser.add_argument(
+        "--final-format", metavar="FMT", default=FINAL_FORMAT, help="The final image format"
+    )
     parser.add_argument(
         "--final-quality",
+        metavar="%",
         type=number(int, (0, 100)),
         default=QUALITY,
         help="The final image quality (percent)",
     )
     parser.add_argument(
         "--final-area",
+        metavar="AREA",
         type=number(int),
         default=RESIZE_AREA,
         help="The final image area (height×width)",
