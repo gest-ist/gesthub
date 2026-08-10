@@ -13,26 +13,22 @@
 """
 
 from __future__ import annotations
-from boardgamegeek import BGGClient
-import dotenv
 
 import argparse
 import itertools
 import json
 import os
-import re
 import sys
 from concurrent.futures import Executor, ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 from typing import Callable
 
-import boardgamegeek
+import dotenv
 import requests
+from boardgamegeek import BGGClient
 from boardgamegeek.objects import BoardGame
 from wand.image import Image
 
-ID_RE = re.compile(r"[0-9]+")
-EXTENSIONS = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
 RESIZE_AREA = 1000**2
 FINAL_FORMAT = "avif"
 QUALITY = 40  # 40% ?
@@ -76,6 +72,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--final-images", type=Path, help="Path to directory containing the optimized images"
     )
+    parser.add_argument("--final-format", default=FINAL_FORMAT, help="The final image format")
+    parser.add_argument(
+        "--final-quality",
+        type=number(int, (0, 100)),
+        default=QUALITY,
+        help="The final image quality (percent)",
+    )
+    parser.add_argument(
+        "--final-area",
+        type=number(int),
+        default=RESIZE_AREA,
+        help="The final image area (height×width)",
+    )
 
     parser.add_argument(
         "--jobs",
@@ -117,10 +126,17 @@ def fetch_images(games: list[BoardGame], raw_images_path: Path, *, pe: Executor)
     raw_images_path.mkdir(parents=True, exist_ok=True)
 
     def fetch(game: BoardGame):
-        print(f"\tFetching box image for game \"{game.name}\" ({game.id})")
-        with requests.get(game.image, stream=True) as resp:
+        url = game.image
+        if url is None:
+            print(f'\t! "{game.name}" ({game.id}) does not have an image URL')
+            return
+
+        print(f'\tFetching box image for game "{game.name}" ({game.id})')
+        suffix_idx = url.rfind(".")
+        suffix = url[suffix_idx:].lower() if suffix_idx != -1 else ".jpg"
+        with requests.get(url, stream=True) as resp:
             resp.raise_for_status()
-            with (raw_images_path / str(game.id)).with_suffix(".jpg").open("wb") as fp:
+            with (raw_images_path / str(game.id)).with_suffix(suffix).open("wb") as fp:
                 for chunk in resp.iter_content(2**13):
                     fp.write(chunk)
 
@@ -130,25 +146,40 @@ def fetch_images(games: list[BoardGame], raw_images_path: Path, *, pe: Executor)
             pe.submit(fetch, game)
 
 
-def process_image(raw_path: Path, final_path: Path):
+def process_image(
+    raw_path: Path,
+    final_path: Path,
+    *,
+    format: str = FINAL_FORMAT,
+    quality: int = QUALITY,
+    area: int = RESIZE_AREA,
+):
     print(f"\tProcessing image {raw_path.stem}")
     with Image(filename=raw_path) as img:
         img: Image = img
-        img.format = FINAL_FORMAT
-        img.transform(resize=f"{RESIZE_AREA}@")
-        img.compression_quality = QUALITY
+        img.format = format
+        img.transform(resize=f"{area}@")
+        img.compression_quality = quality
         img.save(filename=final_path)
 
 
-def process_images(raw_images_path: Path, final_images_path: Path, *, pe: Executor):
+def process_images(
+    raw_images_path: Path,
+    final_images_path: Path,
+    *,
+    format: str = FINAL_FORMAT,
+    quality: int = QUALITY,
+    area: int = RESIZE_AREA,
+    pe: Executor,
+):
     raw_images_path.mkdir(parents=True, exist_ok=True)
     final_images_path.mkdir(parents=True, exist_ok=True)
 
     print("Processing images")
     for file in raw_images_path.iterdir():
         if file.is_file():
-            final_path = (final_images_path / file.stem).with_suffix(f".{FINAL_FORMAT}")
-            pe.submit(process_image, file, final_path)
+            final_path = (final_images_path / file.stem).with_suffix(f".{format}")
+            pe.submit(process_image, file, final_path, format=format, quality=quality, area=area)
 
 
 def main(args: argparse.Namespace):
@@ -171,7 +202,14 @@ def main(args: argparse.Namespace):
     if args.final_images:
         assert args.raw_images, "Must provide raw images dir"
         ppe = ProcessPoolExecutor(max_workers=args.jobs)
-        process_images(args.raw_images, args.final_images, pe=ppe)
+        process_images(
+            args.raw_images,
+            args.final_images,
+            format=args.final_format,
+            quality=args.final_quality,
+            area=args.final_area,
+            pe=ppe,
+        )
         ppe.shutdown()
 
     print("Done")
