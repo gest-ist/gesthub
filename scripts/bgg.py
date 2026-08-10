@@ -15,6 +15,7 @@ The script automatically loads an .env file if it exists.
 """
 
 from __future__ import annotations
+import csv
 
 import argparse
 import itertools
@@ -23,7 +24,7 @@ import os
 import sys
 from concurrent.futures import Executor, ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Iterable
 
 import dotenv
 import requests
@@ -41,6 +42,9 @@ Examples:
 
   Read game IDs from stdin, fetch data and write to var/games.jsonl:
   $ bgg.py --data var/games.jsonl --fetch-data
+
+  Read game IDs from an stdin CSV, on the "bgg_id" column, fetch data and write to var/games.jsonl:
+  $ bgg.py --data var/games.jsonl --fetch-data --csv-ids bgg_id
 
   Read game data from var/game.jsonl, fetch box images and write them to var/boxes/raw, one file per game:
   $ bgg.py --data var/games.jsonl --raw-images var/boxes/raw --fetch-images
@@ -79,6 +83,9 @@ def parse_args() -> argparse.Namespace:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter, epilog=EXAMPLES
     )
 
+    parser.add_argument(
+        "--csv-ids", help="Interpret ID list on stdin as CSV and use this value as the header name"
+    )
     parser.add_argument(
         "--data", type=Path, metavar="PATH", help="Path to JSONL containing game data"
     )
@@ -129,6 +136,23 @@ def parse_args() -> argparse.Namespace:
     )
 
     return parser.parse_args()
+
+
+def ids_from_csv(header: str) -> Iterable[str]:
+    try:
+        idx = int(header)
+    except ValueError:
+        try:
+            idx = sys.stdin.readline().lower().split(",").index(header.lower())
+        except ValueError:
+            idx = -1
+
+    if idx == -1:
+        print("Invalid CSV header")
+        raise SystemExit(1)
+
+    reader = csv.reader(sys.stdin)
+    return (id for record in reader if (id := record[idx]).strip())
 
 
 def fetch_data(token: str, data_path: Path, ids: list[int], *, pe: Executor) -> list[BoardGame]:
@@ -223,7 +247,8 @@ def main(args: argparse.Namespace):
     data: list[BoardGame] = []
     if args.fetch_data:
         assert args.data, "Must provide data path"
-        data = fetch_data(os.environ["BGG_TOKEN"], args.data, [int(n) for n in sys.stdin], pe=tpe)
+        ids = [int(n) for n in (ids_from_csv(args.csv_ids) if args.csv_ids else sys.stdin)]
+        data = fetch_data(os.environ["BGG_TOKEN"], args.data, ids, pe=tpe)
     elif args.data:
         data = read_data(args.data)
 
