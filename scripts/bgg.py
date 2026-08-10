@@ -1,3 +1,4 @@
+#!/usr/bin/env -S uv run -s
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
@@ -7,9 +8,10 @@
 # ]
 # ///
 
-"""Fetch BoardGameGeek metadata, download box images, and optimize them.
+"""Fetch game data from BoardGameGeek, download box images, and optimize them.
 
-...
+It requires an env-var called BGG_TOKEN, with your BGG API token (should be an hexadecimal UUID string).
+The script automatically loads an .env file if it exists.
 """
 
 from __future__ import annotations
@@ -33,6 +35,26 @@ RESIZE_AREA = 1000**2
 FINAL_FORMAT = "avif"
 QUALITY = 40  # 40% ?
 
+EXAMPLES = """
+Examples:
+(recommended you run with: uv run scripts/bgg.py ...)
+
+  Read game IDs from stdin, fetch data and write to var/games.jsonl:
+  $ bgg.py --data var/games.jsonl --fetch-data
+
+  Read game data from var/game.jsonl, fetch box images and write them to var/boxes/raw, one file per game:
+  $ bgg.py --data var/games.jsonl --raw-images var/boxes/raw --fetch-images
+
+  Transform all raw images from var/boxes/raw and write them to var/boxes/final, with default parameters:
+  $ bgg.py --raw-images var/boxes/raw --final-images var/boxes/final
+
+  Transform raw images into AVIF with resizing area of 500000 and 20% quality:
+  $ bgg.py --raw-images var/boxes/raw --final-images var/boxes/final --final-area 500000 --final-quality 20
+
+  Do all the pipeline stages:
+  $ bgg.py --data var/games.jsonl --fetch-data --raw-images var/boxes/raw --fetch-images --final-images var/boxes/final
+"""
+
 
 def number[T: int | float = int](
     parse: Callable[[str], T] = int,  # ty:ignore[invalid-parameter-default]
@@ -53,7 +75,9 @@ def number[T: int | float = int](
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter, epilog=EXAMPLES
+    )
 
     parser.add_argument("--data", type=Path, help="Path to JSONL containing game data")
     parser.add_argument(
