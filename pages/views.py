@@ -18,6 +18,63 @@ from .gallery import load_gallery
 CALENDAR_ORIGIN_URL = settings.CALENDAR_ORIGIN_URL if urlparse(settings.CALENDAR_ORIGIN_URL).netloc else ""
 CALENDAR_ORIGIN_HASH = blake2s(CALENDAR_ORIGIN_URL.encode(), digest_size=8).hexdigest()
 
+"""How to add a partner:
+
+1. Put the partner logo in static/partners_logos/. Keep the filename and case
+    consistent with the file on disk.
+2. Add an entry to PARTNERS below. Set:
+    - logo: the path relative to static/, for example
+      "partners_logos/example.png".
+    - name: the partner's name as written by the partner.
+    - thanks_key: a unique Fluent key, for example
+      "partner-example-thanks".
+    - url: the partner's website, including https://.
+3. Add the thanks_key to all locale files:
+    - locales/pt/pages.ftl
+    - locales/en/pages.ftl
+    - locales/es/pages.ftl
+    Translate the thank-you message separately in each file.
+4. Do not edit partners.html for each new partner. The template already
+    renders the logo link, name, and translated thank-you message.
+5. Run `python manage.py check` and visit each language URL to verify the
+    logo, external link, and translations.
+
+Example entry:
+     {
+          "logo": "partners_logos/example.png",
+          "name": "Example Partner",
+          "thanks_key": "partner-example-thanks",
+          "url": "https://example.com/",
+     },
+"""
+
+PARTNERS = [
+    {
+        "logo": "partners_logos/jogonamesa.png",
+        "name": "Jogo na Mesa",
+        "thanks_key": "partner-jogonamesa-thanks",
+        "url": "https://jogonamesa.pt/",
+        "gestcon_link": True,
+    },
+    {
+        "logo": "partners_logos/Galp_Logo_Standard.png",
+        "name": "Galp",
+        "thanks_key": "partner-galp-thanks",
+        "url": "https://galp.com/",
+    },
+    {
+        "logo": "partners_logos/logo-santander.svg",
+        "name": "Santander",
+        "thanks_key": "partner-santander-thanks",
+        "url": "https://santander.pt/",
+    },
+    {
+        "logo": "partners_logos/aeist.svg",
+        "name": "AEIST",
+        "thanks_key": "partner-aeist-thanks",
+        "url": "https://aeist.pt/",
+    },
+]
 
 def home(request):
     return render(
@@ -35,6 +92,17 @@ def gestcon_gallery(request):
         "pages/gestcon_gallery.html",
         {
             "gallery": load_gallery("gestcon/2026"),
+        },
+    )
+
+
+def partners(request):
+    return render(
+        request,
+        "pages/partners.html",
+        {
+            "partners": PARTNERS,
+            "gestcon_url": request.path.replace("parceiros", "gestcon/2026"),
         },
     )
 

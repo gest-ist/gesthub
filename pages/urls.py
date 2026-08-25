@@ -28,6 +28,10 @@ ROUTES = {
         views.gestcon_gallery,
         {"pt": "gestcon/2026/galeria", "en": "gestcon/2026/gallery", "es": "gestcon/2026/galeria"},
     ),
+    "partners": (
+        views.partners,
+        {"pt": "parceiros", "en": "parceiros", "es": "parceiros"},
+    ),
 }
 
 urlpatterns = [
@@ -36,6 +40,7 @@ urlpatterns = [
     path("en/calendar/embed/", views.calendar_embed, name="en-calendar_embed"),
     path("es/calendar/embed/", views.calendar_embed, name="es-calendar_embed"),
     *localized_patterns(ROUTES),
+    path("parceiros/", RedirectView.as_view(url="/pt/parceiros/", permanent=False)),
     path("gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("gestcon/2026/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("pt/gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),

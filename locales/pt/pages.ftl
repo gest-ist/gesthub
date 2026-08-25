@@ -1,3 +1,12 @@
+partners-title = Parceiros
+partners-description = Parceiros do GEST.
+partners-intro = Conhece os parceiros do GEST.
+partners-empty = Em breve poderás conhecer os nossos parceiros.
+partner-galp-thanks = Obrigado à Galp pelo apoio para o Board Game Café 2026.
+partner-jogonamesa-thanks = Obrigado ao Jogo na Mesa pelo apoio para a
+partner-santander-thanks = Obrigado ao Santander pelo apoio para o Board Game Café 2025.
+partner-aeist-thanks = Obrigado à AEIST pelo apoio através do programa P3A para a realização do RPGIST e as renovações da ludoteca do GEST.
+
 home-hero-alt = Banner do GEST
 home-description = Grupo de jogos do Instituto Superior Técnico: Game Nights, D&D, torneios, convenções e comunidade.
 

@@ -1,3 +1,12 @@
+partners-title = Partners
+partners-description = GEST partners.
+partners-intro = Meet GEST's partners.
+partners-empty = Our partners will be listed here soon.
+partner-galp-thanks = Thank you to Galp for supporting Board Game Café 2026.
+partner-jogonamesa-thanks = Thank you to Jogo na Mesa for supporting
+partner-santander-thanks = Thank you to Santander for supporting Board Game Café 2025.
+partner-aeist-thanks = Thank you to AEIST, through the P3A programme, for supporting RPGIST and the renovations to GEST's game library.
+
 home-hero-alt = GEST banner
 home-description = Board game and tabletop group at Instituto Superior Técnico: Game Nights, D&D, tournaments, conventions, and community.
 

@@ -11,6 +11,7 @@ nav-calendar = Calendário
 nav-gallery = Galeria
 nav-collection = Ludoteca
 nav-gestcon = GESTCon
+nav-partners = Parceiros
 
 month-1 = Janeiro
 month-2 = Fevereiro

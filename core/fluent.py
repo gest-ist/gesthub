@@ -147,5 +147,6 @@ def context(request):
             "collection": route_url("collection", language),
             "gestcon": route_url("gestcon", language),
             "gestcon_gallery": route_url("gestcon_gallery", language),
+            "partners": route_url("partners", language),
         },
     }
