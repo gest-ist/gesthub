@@ -50,11 +50,29 @@ Example entry:
 
 PARTNERS = [
     {
-        "logo": "partners_logos/jogonamesa.png",
+        "logo": "partners_logos/jogomesa_vectorial.svg",
         "name": "Jogo na Mesa",
         "thanks_key": "partner-jogonamesa-thanks",
         "url": "https://jogonamesa.pt/",
         "gestcon_link": True,
+    },
+    {
+        "logo": "partners_logos/newborn_games.png",
+        "name": "Newborn Games",
+        "thanks_key": "partner-newborn-games-thanks",
+        "url": "https://newborngames.pt/",
+    },
+    {
+        "logo": "partners_logos/gamesomnivorous.jpg",
+        "name": "Games Omnivorous",
+        "thanks_key": "partner-games-omnivorous-thanks",
+        "url": "https://gamesomnivorous.com/",
+    },
+    {
+        "logo": "partners_logos/aeist.svg",
+        "name": "AEIST",
+        "thanks_key": "partner-aeist-thanks",
+        "url": "https://aeist.pt/",
     },
     {
         "logo": "partners_logos/Galp_Logo_Standard.png",
@@ -67,12 +85,6 @@ PARTNERS = [
         "name": "Santander",
         "thanks_key": "partner-santander-thanks",
         "url": "https://santander.pt/",
-    },
-    {
-        "logo": "partners_logos/aeist.svg",
-        "name": "AEIST",
-        "thanks_key": "partner-aeist-thanks",
-        "url": "https://aeist.pt/",
     },
 ]
 

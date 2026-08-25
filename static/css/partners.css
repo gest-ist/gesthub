@@ -1,3 +1,9 @@
+.partners-intro {
+  max-width: 50rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -10,6 +16,7 @@
   align-content: start;
   gap: 1rem;
   text-align: center;
+  background-color: white;
 }
 
 .partner-card>a {
