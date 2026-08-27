@@ -10,9 +10,13 @@
               {% if item.tags.all %}
                 {% for tag in item.tags.all %}
                   {% if tag.slug == "recommended" %}
-                    <span class="yellow recommended-banner">★</span>
+                    <span class="recommended-banner">❤</span>
                   {% endif %}
                 {% endfor %}
+              {% endif %}
+
+              {% if kind == "boardgame" and item.expansions.all %}
+                <span class="expansion-banner">+</span>
               {% endif %}
 
               {% if entry.thumbnail_url %}
