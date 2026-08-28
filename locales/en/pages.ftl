@@ -14,6 +14,7 @@ home-description = Board game and tabletop group at Instituto Superior Técnico:
 home-about-title = About us
 home-about-body-1 = We're a student group at IST passionate about bringing people together through games of all kinds, from board games and role playing games, to card games, video games, and more. We organise events such as Game Nights, TTRPG campaigns and one-shots, tournaments, and other activities. In addition, we strive to foster a welcoming and inclusive community, where everyone is welcome to share their love of games. To keep up with our events, join our community on Discord and follow us on Instagram! If you have any questions, feel free to contact us by email or through our socials.
 home-discord-invite = Join us on Discord to chat, participate in activities, and engage with the community!
+home-whatsapp-invite = Join our WhatsApp group for event updates and community news!
 
 home-events-title = Recurring events
 home-gamenights-title = Game Nights

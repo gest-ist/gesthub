@@ -33,7 +33,8 @@
   }
 }
 
-#discord-invite {
+#discord-invite,
+#whatsapp-invite {
   display: grid;
   justify-items: center;
   gap: 0.15rem;
@@ -106,7 +107,7 @@
 #contact-links {
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 
   a {
@@ -127,7 +128,8 @@
 }
 
 @media (max-width: 1600px) {
-  #discord-invite {
+  #discord-invite,
+  #whatsapp-invite {
     position: static;
     width: min(100%, 16rem);
     margin: 1.25rem auto 0;

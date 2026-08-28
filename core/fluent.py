@@ -121,6 +121,7 @@ def context(request):
     language = request.LANGUAGE_CODE
     current_route = route_name_from_match(request.resolver_match)
     discord_url = request.build_absolute_uri("/discord")
+    whatsapp_url = request.build_absolute_uri("/whatsapp")
 
     language_links = {}
     if current_route is not None:
@@ -138,9 +139,11 @@ def context(request):
         },
         "site_urls": {
             "discord": discord_url,
+            "whatsapp": whatsapp_url,
         },
         "site_url_labels": {
             "discord": discord_url.removeprefix("https://").removeprefix("http://"),
+            "whatsapp": whatsapp_url.removeprefix("https://").removeprefix("http://"),
         },
         "localized_urls": {
             "home": route_url("home", language),

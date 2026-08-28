@@ -12,6 +12,7 @@ gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
   }
 
   redir /discord https://discord.com/invite/PU3aQhHnqu
+  redir /whatsapp https://chat.whatsapp.com/EcchDmfIpEt8G28dYXRrx9
 
   reverse_proxy web:8000
 }

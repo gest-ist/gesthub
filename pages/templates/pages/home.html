@@ -34,6 +34,10 @@
         {% include "icons/discord.opt.svg" %}
         <p>{% ftlmsg 'home-discord-invite' %}</p>
       </a>
+      <a id="whatsapp-invite" href="{{ site_urls.whatsapp }}" target="_blank" rel="noopener noreferrer">
+        {% include "icons/whatsapp.opt.svg" %}
+        <p>{% ftlmsg 'home-whatsapp-invite' %}</p>
+      </a>
     </div>
   </section>
 
@@ -124,6 +128,13 @@
             Discord
           </span>
           <strong>{{ site_url_labels.discord }}</strong>
+        </a>
+        <a role="button" class="raised green card" href="{{ site_urls.whatsapp }}" target="_blank" rel="noopener noreferrer">
+          <span class="contact-link-label">
+            {% include "icons/whatsapp.opt.svg" %}
+            WhatsApp
+          </span>
+          <strong>{{ site_url_labels.whatsapp }}</strong>
         </a>
       </div>
     </div>

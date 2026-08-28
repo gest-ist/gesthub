@@ -14,6 +14,7 @@ home-description = Grupo de juegos del Instituto Superior Técnico: Game Nights,
 home-about-title = Sobre nosotros
 home-about-body-1 = Somos un grupo de estudiantes del IST que promueve el convívio através de todo tipo de juegos, desde juegos de tablero y juegos narrativos, a juegos de cartas, videojuegos, y más. Organizamos eventos como las Game Nights, Campañas y One-Shots de TTRPGs, torneos, y otras actividades a lo largo del año. Además de eso, buscamos fomentar uma comunidad acogedora e inclusiva, en la cual todos son bienvenidos a compartir el gusto por los diversos juegos. ¡Únete a nuestra comunidad en Discord y síguenos en Instagram para estar informado de nuestros eventos! Si tienes alguna duda, contactanos por mail o por nuestras redes sociales.
 home-discord-invite = ¡Únete a nosotros en Discord para hablar, participar en actividades e interactuar com la comunidad!
+home-whatsapp-invite = ¡Únete a nuestro grupo de WhatsApp para recibir novedades de eventos y de la comunidad!
 
 home-events-title = Eventos recurrentes
 home-gamenights-title = Game Nights
