@@ -11,7 +11,7 @@ gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
     file_server
   }
 
-  redir /discord https://discord.gg/
+  redir /discord https://discord.com/invite/PU3aQhHnqu
 
   reverse_proxy web:8000
 }
