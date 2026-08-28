@@ -1,0 +1,145 @@
+#hero {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gest-blue);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow:
+      inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    margin-block: -2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  #hero {
+    height: clamp(15rem, 40vw, 20rem);
+
+    img {
+      height: 100%;
+      margin-block: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+#discord-invite {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  max-width: 13em;
+  position: absolute;
+  right: -4em;
+  top: 3em;
+  text-align: center;
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  p {
+    margin: 0;
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+}
+
+#calendar>.card {
+  padding-bottom: 0.5rem;
+}
+
+#event-cards {
+  article {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    margin: 0 0 1.5rem;
+    text-align: left;
+  }
+
+  footer {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  i {
+    opacity: 0.5;
+  }
+}
+
+#contact p {
+  margin-inline: auto;
+  text-align: center;
+}
+
+#contact-links {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+
+  a {
+    display: grid;
+    gap: 0.25rem;
+    text-decoration: none;
+  }
+
+  span {
+    opacity: 0.72;
+  }
+}
+
+.contact-link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 1600px) {
+  #discord-invite {
+    position: static;
+    width: min(100%, 16rem);
+    margin: 1.25rem auto 0;
+  }
+}
+
+@media (max-width: 900px) {
+  #calendar .responsive-iframe {
+    aspect-ratio: 4 / 5;
+  }
+
+  #contact-links {
+    grid-template-columns: 1fr;
+  }
+}

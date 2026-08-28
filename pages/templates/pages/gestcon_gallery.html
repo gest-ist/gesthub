@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load data ftl static %}
+
+{% block title %}{% ftlmsg 'gestcon-gallery-page-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'gestcon-gallery-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'gestcon-gallery-page-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'gestcon-gallery-description' %}{% endblock %}
+{% block og_image %}{{ social_images.gestcon_gallery }}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+  <link rel="stylesheet" href="{% static 'css/gestcon_gallery.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <li><a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="gallery" class="black">
+    <div class="container">
+      <h2>{% ftlmsg 'gestcon-gallery-title' %}</h2>
+
+      <div class="gallery-grid" aria-label="{% ftlmsg 'gestcon-gallery-label' %}">
+        {% for image in gallery %}
+          <a class="gallery-item raised card hover-drop" href="{{ image.url }}" data-gallery-full="{{ image.url }}" data-gallery-alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}data-gallery-width="{{ image.width }}" data-gallery-height="{{ image.height }}"{% endif %}>
+            <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy" decoding="async">
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <dialog id="gallery-dialog" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img alt="">
+    </dialog>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/gallery.js' %}" defer></script>
+{% endblock %}

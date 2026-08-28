@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load data ftl static %}
+
+{% block description %}{% ftlmsg 'home-description' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'home-description' %}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <li><a href="#about">{% ftlmsg 'nav-about' %}</a></li>
+  <li><a href="#events">{% ftlmsg 'nav-events' %}</a></li>
+  <li><a href="#calendar">{% ftlmsg 'nav-calendar' %}</a></li>
+  <li><a href="#gallery">{% ftlmsg 'nav-gallery' %}</a></li>
+  <li><a href="#contact">{% ftlmsg 'nav-contact' %}</a></li>
+  <li><a href="{{ localized_urls.collection }}">{% ftlmsg 'nav-collection' %}</a></li>
+  <li><a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a></li>
+  <li><a href="{{ localized_urls.partners }}">{% ftlmsg 'nav-partners' %}</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="hero">
+    <img src="{% static 'img/banner.svg' %}" loading="eager" alt="{% ftlmsg 'home-hero-alt' %}" width="6250" height="2500">
+  </section>
+
+  <section class="white" id="about">
+    <div class="container">
+      <h2>{% ftlmsg 'home-about-title' %}</h2>
+      <p>{% ftlmsg 'home-about-body-1' %}</p>
+
+      <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
+        {% include "icons/discord.opt.svg" %}
+        <p>{% ftlmsg 'home-discord-invite' %}</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="dgreen" id="events">
+    <div class="container">
+      <h2>{% ftlmsg 'home-events-title' %}</h2>
+
+      <div id="event-cards" class="two-col">
+        <article class="raised card">
+          <section>
+            <h3>{% ftlmsg 'home-gamenights-title' %}</h3>
+            <p>{% ftlmsg 'home-gamenights-body' %}</p>
+          </section>
+          <footer>
+            <a role="button" class="raised" href="{{ localized_urls.collection }}">{% ftlmsg 'home-game-collection' %}</a>
+          </footer>
+        </article>
+
+        <article class="raised card">
+          <section>
+            <h3>{% ftlmsg 'home-oneshots-title' %}</h3>
+            <p>{% ftlmsg 'home-oneshots-body' %}</p>
+          </section>
+          <footer>
+            <a role="button" class="raised" disabled>{% ftlmsg 'home-sign-up' %}</a>
+            <i>{% ftlmsg 'home-oneshots-closed' %}</i>
+          </footer>
+        </article>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container" id="calendar">
+      <h2>{% ftlmsg 'home-calendar-title' %}</h2>
+      <div class="raised card">
+        <div class="responsive-iframe">
+          <iframe title="{% ftlmsg 'home-calendar-frame-title' %}" loading="lazy" src="/{{ current_language }}/calendar/embed/"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="black" id="gallery">
+    <div class="container">
+      <h2>{% ftlmsg 'home-gallery-title' %}</h2>
+      <div id="gallery-carousel">
+        <button class="raised outlined white" type="button" data-gallery-scroll="-1" aria-label="{% ftlmsg 'home-gallery-previous' %}">&#10094;</button>
+        <div class="gallery-strip" aria-label="{% ftlmsg 'home-gallery-label' %}">
+          {% for image in home_gallery %}
+          <a class="gallery-item raised card hover-drop" href="{{ image.url }}" data-gallery-full="{{ image.url }}" data-gallery-alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}data-gallery-width="{{ image.width }}" data-gallery-height="{{ image.height }}"{% endif %}>
+            <img src="{{ image.url }}" alt="{{ image.alts|get_item:current_language }}" {% if image.width and image.height %}width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy" decoding="async">
+          </a>
+          {% endfor %}
+        </div>
+        <button class="raised outlined white" type="button" data-gallery-scroll="1" aria-label="{% ftlmsg 'home-gallery-next' %}">&#10095;</button>
+      </div>
+    </div>
+
+    <dialog id="gallery-dialog" aria-label="{% ftlmsg 'home-gallery-close' %}">
+      <img alt="">
+    </dialog>
+  </section>
+
+  <section class="white" id="contact">
+    <div class="container">
+      <h2>{% ftlmsg 'home-contact-title' %}</h2>
+      <p>{% ftlmsg 'home-contact-intro' %}</p>
+
+      <div id="contact-links">
+        <a role="button" class="raised dgreen white-fg card" href="mailto:gest.sa@aeist.pt">
+          <span class="contact-link-label">
+            {% include "icons/mail.svg" %}
+            Email
+          </span>
+          <strong>gest.sa@aeist.pt</strong>
+        </a>
+        <a role="button" class="raised red card" href="https://instagram.com/gest.aeist" target="_blank" rel="noopener noreferrer">
+          <span class="contact-link-label">
+            {% include "icons/instagram.opt.svg" %}
+            Instagram
+          </span>
+          <strong>@gest.aeist</strong>
+        </a>
+        <a role="button" class="raised lpurple card" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
+          <span class="contact-link-label">
+            {% include "icons/discord.opt.svg" %}
+            Discord
+          </span>
+          <strong>{{ site_url_labels.discord }}</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/gallery.js' %}" defer></script>
+{% endblock %}

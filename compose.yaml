@@ -1,0 +1,42 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    expose:
+      - 8000
+    volumes:
+      - ./public:/app/public
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.prod
+      DJANGO_DEBUG: "false"
+
+  collectstatic:
+    build: .
+    profiles: ["ops"]
+    user: "${UID:-0}:${GID:-0}"
+    env_file: .env
+    volumes:
+      - ./public/static:/app/public/static
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.prod
+      DJANGO_DEBUG: "false"
+    command: ["manage", "collectstatic", "--noinput", "--clear"]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - web
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./public:/srv/gest/public:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

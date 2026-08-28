@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load ftl static %}
+
+{% block title %}{% ftlmsg 'gestcon-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'gestcon-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'gestcon-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'gestcon-description' %}{% endblock %}
+{% block og_image %}{{ social_images.gestcon }}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gestcon.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <li><a href="{{ localized_urls.gestcon_gallery }}">{% ftlmsg 'nav-gallery' %}</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="hero">
+    <img src="{% static 'img/gestcon/2026/banner.svg' %}" loading="eager" alt="{% ftlmsg 'gestcon-hero-alt' %}" width="6250" height="2500">
+  </section>
+
+  <section id="about" class="white">
+    <div class="container">
+      <p>{% ftlmsg 'gestcon-about-body' %}</p>
+      <div class="video-container">
+        <iframe
+          width="100%"
+          height="450"
+          src="https://www.youtube.com/embed/Ax_cd2riYN8"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="dgreen" id="gallery">
+    <div id="gallery-grid">
+      <div id="photo-pair">
+        <img src="/media/gestcon/2026/ludoteca1.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-left-alt' %}">
+        <img src="/media/gestcon/2026/ludoteca2.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'gestcon-ludoteca-right-alt' %}">
+      </div>
+
+      <figure class="gestcon-photo-feature dgreen">
+        <figcaption>{% ftlmsg 'gestcon-ludoteca-caption' %}</figcaption>
+        <img src="/media/gestcon/2026/root1.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-root-alt' %}">
+      </figure>
+
+      <figure class="gestcon-photo-feature pink">
+        <img src="/media/gestcon/2026/cubitos.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-cubitos-alt' %}">
+        <figcaption>{% ftlmsg 'gestcon-cubitos-caption' %}</figcaption>
+      </figure>
+
+      <figure id="gallery-cta" class="gestcon-photo-feature black">
+        <figcaption>
+          <p>{% ftlmsg 'gestcon-gallery-cta' %}</p>
+          <a id="gallery-link" role="button" class="raised white card" href="{{ localized_urls.gestcon_gallery }}">
+            {% ftlmsg 'gestcon-gallery-button' %}
+          </a>
+        </figcaption>
+        <img src="/media/gestcon/2026/gesticieiro.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'gestcon-gesticieiro-alt' %}">
+      </figure>
+    </div>
+  </section>
+{% endblock %}

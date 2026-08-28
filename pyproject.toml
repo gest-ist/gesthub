@@ -1,0 +1,47 @@
+[project]
+name = "gest"
+version = "0.1.0"
+description = "GEST website, inventory, and convention platform"
+
+requires-python = ">=3.14"
+
+dependencies = [
+  "bgg-api>=1.1.19",
+  "django-ftl>=0.14,<0.15",
+  "django>=5.2,<6.0",
+  "fastpysgi>=0.6",
+  "icalendar>=7.1.2",
+  "imagesize>=2.0.0",
+  "nestedtext>=3.8",
+  "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1.2.2",
+  "recurring-ical-events>=3.8.2",
+  "wand>=0.7.2",
+]
+
+[project.scripts]
+check = "core.cli:check"
+fix = "core.cli:fix"
+gest = "core.cli:manage"
+manage = "core.cli:manage"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+include = ["core*", "inventory*", "pages*"]
+
+[dependency-groups]
+dev = [
+    "django-stubs>=6.0.5",
+    "ruff>=0.14,<0.15",
+    "ty>=0.0.1a0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

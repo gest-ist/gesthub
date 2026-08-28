@@ -1,0 +1,17 @@
+.git
+.venv
+.uv-cache
+.ruff_cache
+.rumdl_cache
+.ty
+__pycache__
+*.py[cod]
+*.egg-info
+
+.env
+db.sqlite3
+old
+postcon
+public
+var
+*.bak

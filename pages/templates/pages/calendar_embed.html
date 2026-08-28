@@ -1,0 +1,91 @@
+{% load ftl static %}
+
+<!doctype html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+  </head>
+  <body>
+    <main id="calendar-embed">
+      {% if calendar_available %}
+        <header>
+          <a role="button" class="raised outlined gray" href="?year={{ previous_year }}&amp;month={{ previous_month }}" aria-label="{% ftlmsg 'calendar-previous-month' %}">&#10094;</a>
+          <h1>{% ftlmsg month_name_key %} {{ year }}</h1>
+          <a role="button" class="raised outlined gray" href="?year={{ next_year }}&amp;month={{ next_month }}" aria-label="{% ftlmsg 'calendar-next-month' %}">&#10095;</a>
+        </header>
+
+        <section id="calendar-scroll" aria-label="{% ftlmsg 'calendar-view-label' %}">
+          <table>
+            <thead>
+              <tr>
+                <th>{% ftlmsg 'calendar-weekday-mon' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-tue' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-wed' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-thu' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-fri' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-sat' %}</th>
+                <th>{% ftlmsg 'calendar-weekday-sun' %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for week in weeks %}
+                <tr>
+                  {% for day in week %}
+                    <td {% if not day.current_month %}class="muted"{% endif %}>
+                      <time datetime="{{ day.date|date:'Y-m-d' }}">{{ day.date.day }}</time>
+                      {% for event in day.events %}
+                        <p class="gray card">
+                          <strong>{{ event.title }}</strong>
+                          {% if event.details %}
+                            <span>{{ event.details }}</span>
+                          {% endif %}
+                        </p>
+                      {% endfor %}
+                    </td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <section id="calendar-agenda" aria-label="{% ftlmsg 'calendar-agenda-label' %}">
+            {% if month_has_events %}
+              {% for week in weeks %}
+                {% for day in week %}
+                  {% if day.current_month and day.events %}
+                    <article>
+                      <h2>
+                        <time datetime="{{ day.date|date:'Y-m-d' }}">{{ day.date.day }}</time>
+                      </h2>
+                      {% for event in day.events %}
+                        <p class="card hover-drop gray">
+                          <strong>{{ event.title }}</strong>
+                          {% if event.details %}
+                            <span>{{ event.details }}</span>
+                          {% endif %}
+                        </p>
+                      {% endfor %}
+                    </article>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            {% else %}
+              <p id="calendar-agenda-empty">{% ftlmsg 'calendar-agenda-empty-prefix' %} {% ftlmsg month_name_key %}</p>
+            {% endif %}
+          </section>
+        </section>
+      {% else %}
+        <p id="calendar-unavailable">{% ftlmsg 'calendar-unavailable' %}</p>
+      {% endif %}
+
+      <footer>
+        {% if calendar_origin_url %}
+          <a id="calendar-origin" href="{{ calendar_origin_url }}" target="_blank" rel="noopener noreferrer">{% ftlmsg 'calendar-origin-link' %}⤴</a>
+        {% endif %}
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+{% load ftl static %}
+
+<!doctype html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#d2bdb8">
+    <title>{% block title %}{% ftlmsg 'site-title' %} — {% ftlmsg 'site-description' %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:site_name" content="{% ftlmsg 'site-title' %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% ftlmsg 'site-title' %} — {% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% ftlmsg 'site-description' %}{% endblock %}">
+    <meta property="og:url" content="{{ current_url }}">
+    <meta property="og:image" content="{% block og_image %}{{ social_images.default }}{% endblock %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="{% static 'logos/small_blue.svg' %}">
+    <link rel="preload" href="{% static 'fonts/Gabarito-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block styles %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <nav aria-label="{% ftlmsg 'nav-main-label' %}">
+        <a id="brand" href="{{ localized_urls.home }}">
+          {% include "icons/small_black.opt.svg" %}
+          <span>{% ftlmsg 'site-description' %}</span>
+        </a>
+
+        <input id="nav-toggle" type="checkbox">
+        <div id="nav-panel">
+          <menu id="nav-links">
+            {% block navlinks %}
+              <li><a href="{{ localized_urls.home }}">{% ftlmsg 'nav-home' %}</a></li>
+            {% endblock %}
+          </menu>
+
+          <div id="nav-menu-socials" class="nav-socials">
+            {% include "partials/nav_socials.html" %}
+          </div>
+        </div>
+
+        <div id="nav-socials" class="nav-socials">
+          {% include "partials/nav_socials.html" %}
+        </div>
+
+        {% if language_links %}
+          <div id="language-dropdown">
+            <button type="button" aria-label="{% ftlmsg 'nav-language' %}">
+              {% include "icons/languages.svg" %}
+            </button>
+            <menu>
+              {% for code, url in language_links.items %}
+                <li><a href="{{ url }}" {% if code == current_language %}aria-current="true"{% endif %}>{{ code|upper }}</a></li>
+              {% endfor %}
+            </menu>
+          </div>
+        {% endif %}
+
+        <label id="nav-toggle-label" for="nav-toggle" aria-label="{% ftlmsg 'nav-main-label' %}">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </nav>
+    </header>
+
+    <main id="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <p><span id="copyright">&copy;</span> 2025–2026 GEST</p>
+    </footer>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load ftl static %}
+
+{% block title %}{% ftlmsg 'collection-title' %} — {% ftlmsg 'site-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'collection-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'collection-title' %} — {% ftlmsg 'site-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'collection-description' %}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/collection.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <li><a href="{{ localized_urls.home }}">{% ftlmsg 'nav-home' %}</a></li>
+  <li><a href="{{ localized_urls.collection }}" aria-current="page">{% ftlmsg 'nav-collection' %}</a></li>
+  <li><a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a></li>
+{% endblock %}
+
+{% block content %}
+  <section class="white">
+    <h1>{% ftlmsg 'collection-title' %}</h1>
+
+    {% ftlmsg 'collection-about' bg_count=boardgame_count bg_unavailable=unavailable_boardgame_count rpg_count=ttrpg_count rpg_unavailable=unavailable_ttrpg_count as collection_about %}
+    <p>{{ collection_about|safe }}</p>
+  </section>
+
+  <section class="dgreen">
+    <div class="container">
+      <h2>{% ftlmsg 'collection-boardgames-title' %}</h2>
+
+      {% if recommended_boardgames %}
+        <div class="collection-featured">
+          {% include "inventory/partials/item_grid.html" with entries=recommended_boardgames kind="boardgame" card_color="black" %}
+        </div>
+      {% endif %}
+
+      {% include "inventory/partials/item_grid.html" with entries=boardgames kind="boardgame" card_color="black" %}
+    </div>
+  </section>
+
+  <section class="black">
+    <div class="container">
+      <h2>{% ftlmsg 'collection-ttrpg-title' %}</h2>
+      {% include "inventory/partials/item_grid.html" with entries=ttrpg_assets kind="ttrpg" card_color="white" %}
+    </div>
+  </section>
+
+  <dialog id="collection-modal" aria-labelledby="collection-modal-title" popover>
+    <article class="card">
+      <button id="collection-modal-close" class="raised" type="button" aria-label="{% ftlmsg 'collection-modal-close' %}">×</button>
+      <div id="collection-modal-content"></div>
+    </article>
+  </dialog>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/collection.js' %}"></script>
+{% endblock %}

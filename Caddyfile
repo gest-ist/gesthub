@@ -1,0 +1,17 @@
+gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
+  encode zstd gzip
+
+  handle_path /static/* {
+    root * /srv/gest/public/static
+    file_server
+  }
+
+  handle_path /media/* {
+    root * /srv/gest/public/media
+    file_server
+  }
+
+  redir /discord https://discord.gg/
+
+  reverse_proxy web:8000
+}
