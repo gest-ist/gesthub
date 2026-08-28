@@ -1,6 +1,4 @@
-# Sample configuration. Adjust on actual deployment.
-
-gest.tecnico.ulisboa.pt {
+gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
   encode zstd gzip
 
   handle_path /static/* {
@@ -15,7 +13,5 @@ gest.tecnico.ulisboa.pt {
 
   redir /discord https://discord.gg/
 
-  reverse_proxy 127.0.0.1:8000
+  reverse_proxy web:8000
 }
-
-http://localhost:8080 {
