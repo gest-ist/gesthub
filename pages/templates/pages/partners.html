@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load ftl static %}
+
+{% block title %}{% ftlmsg 'partners-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'partners-description' %}{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/partners.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="white">
+    <div class="container">
+      <h1>{% ftlmsg 'partners-title' %}</h1>
+      <p class="partners-intro">{% ftlmsg 'partners-intro' %}</p>
+
+      <div class="partners-grid">
+        {% for partner in partners %}
+          <article class="raised card partner-card">
+            <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">
+              <img src="{% static partner.logo %}" alt="{{ partner.name }}">
+            </a>
+            <h2>{{ partner.name }}</h2>
+            {% if partner.gestcon_link %}
+              <p>{% ftlmsg partner.thanks_key %} <a href="{{ gestcon_url }}">GESTCon</a>.</p>
+            {% else %}
+              <p>{% ftlmsg partner.thanks_key %}</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
