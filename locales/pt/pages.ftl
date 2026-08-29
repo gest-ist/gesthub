@@ -1,13 +1,3 @@
-partners-title = Parceiros
-partners-description = Parceiros do GEST.
-partners-intro = O GEST agradece aos parceiros que tornam possível a realização das nossas atividades e iniciativas. Conhece as entidades que apoiam a nossa comunidade e ajudam a levar mais jogos e eventos ao IST.
-partner-galp-thanks = Patrocinador do Board Game Café em 2026 através do Prémio CA2EC.
-partner-jogonamesa-thanks = Obrigado ao Jogo na Mesa pelo apoio para a
-partner-santander-thanks = Patrocinador do Board Game Café em 2025 através do Prémio CA2EC.
-partner-aeist-thanks = Obrigado à AEIST pelo apoio através do programa P3A para a realização do RPGIST e as renovações da ludoteca do GEST.
-partner-newborn-games-thanks = Obrigado à Newborn Games pelo apoio para a realização do RPGIST.
-partner-games-omnivorous-thanks = Obrigado à Games Omnivorous pelo apoio para a realização do RPGIST.
-
 home-hero-alt = Banner do GEST
 home-description = Grupo de jogos do Instituto Superior Técnico: Game Nights, D&D, torneios, convenções e comunidade.
 
@@ -53,6 +43,18 @@ home-gallery-close = Fechar fotografia
 
 home-contact-title = Contacto
 home-contact-intro = Fala connosco se tiveres dúvidas sobre eventos, a ludoteca, ou o grupo.
+
+partners-title = GEST — Parceiros
+partners-description = Parceiros do GEST.
+partners-intro =
+  O GEST agradece aos parceiros que tornam possível a realização das nossas atividades e iniciativas.
+  Conhece as entidades que apoiam a nossa comunidade e ajudam a levar mais jogos e eventos ao IST.
+partner-galp-thanks = Patrocinador do Board Game Café em 2026 através do Prémio CA2EC.
+partner-jogonamesa-thanks = Obrigado ao Jogo na Mesa pelo apoio para a
+partner-santander-thanks = Patrocinador do Board Game Café em 2025 através do Prémio CA2EC.
+partner-aeist-thanks = Obrigado à AEIST pelo apoio através do programa P3A para a realização do RPGIST e as renovações da ludoteca do GEST.
+partner-newborn-games-thanks = Obrigado à Newborn Games pelo apoio para a realização do RPGIST.
+partner-games-omnivorous-thanks = Obrigado à Games Omnivorous pelo apoio para a realização do RPGIST.
 
 gestcon-title = GESTCon — Convenção de Jogos de Tabuleiro
 gestcon-description = Convenção de jogos de tabuleiro organizada pelo GEST no Instituto Superior Técnico.
