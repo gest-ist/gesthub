@@ -40,7 +40,6 @@
   gap: 0.15rem;
   max-width: 13em;
   position: absolute;
-  right: -4em;
   top: 3em;
   text-align: center;
   opacity: 0.6;
@@ -67,6 +66,18 @@
     margin-inline: auto;
     margin-bottom: 0;
   }
+}
+
+#whatsapp-invite {
+  left: -4em;
+}
+
+#discord-invite {
+  right: -4em;
+}
+
+#community-invites {
+  display: contents;
 }
 
 #calendar>.card {
@@ -128,11 +139,19 @@
 }
 
 @media (max-width: 1600px) {
+  #community-invites {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+  }
+
   #discord-invite,
   #whatsapp-invite {
     position: static;
     width: min(100%, 16rem);
-    margin: 1.25rem auto 0;
+    margin: 0;
   }
 }
 

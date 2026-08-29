@@ -30,14 +30,16 @@
       <h2>{% ftlmsg 'home-about-title' %}</h2>
       <p>{% ftlmsg 'home-about-body-1' %}</p>
 
-      <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
-        {% include "icons/discord.opt.svg" %}
-        <p>{% ftlmsg 'home-discord-invite' %}</p>
-      </a>
-      <a id="whatsapp-invite" href="{{ site_urls.whatsapp }}" target="_blank" rel="noopener noreferrer">
-        {% include "icons/whatsapp.opt.svg" %}
-        <p>{% ftlmsg 'home-whatsapp-invite' %}</p>
-      </a>
+      <div id="community-invites">
+        <a id="whatsapp-invite" href="{{ site_urls.whatsapp }}" target="_blank" rel="noopener noreferrer">
+          {% include "icons/whatsapp.opt.svg" %}
+          <p>{% ftlmsg 'home-whatsapp-invite' %}</p>
+        </a>
+        <a id="discord-invite" href="{{ site_urls.discord }}" target="_blank" rel="noopener noreferrer">
+          {% include "icons/discord.opt.svg" %}
+          <p>{% ftlmsg 'home-discord-invite' %}</p>
+        </a>
+      </div>
     </div>
   </section>
 
