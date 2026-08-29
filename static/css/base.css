@@ -238,7 +238,7 @@ header>nav {
   }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1640px) {
   header>nav {
     flex-wrap: wrap;
     align-items: center;
