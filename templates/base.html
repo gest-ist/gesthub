@@ -73,6 +73,14 @@
     <footer>
       <p><span id="copyright">&copy;</span> 2025–2026 GEST</p>
     </footer>
+
+    <script>
+      const nav = document.querySelector("header > nav");
+      const navToggle = document.querySelector("#nav-toggle");
+      document.addEventListener("click", event => {
+        if (!nav.contains(event.target)) navToggle.checked = false;
+      });
+    </script>
     {% block scripts %}{% endblock %}
   </body>
 </html>
