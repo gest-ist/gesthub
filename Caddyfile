@@ -1,4 +1,9 @@
-gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
+{
+  # Dev
+  debug
+}
+
+{$CADDY_DOMAINS:localhost} {
   encode zstd gzip
 
   handle_path /static/* {
@@ -11,8 +16,8 @@ gesthub.gest.tp.vps.tecnico.ulisboa.pt gest.tecnico.ulisboa.pt {
     file_server
   }
 
-  redir /discord https://discord.com/invite/PU3aQhHnqu
-  redir /whatsapp https://chat.whatsapp.com/EcchDmfIpEt8G28dYXRrx9
+  redir {$DISCORD_REDIR_URL} {$DISCORD_TRUE_URL}
+  redir {$WHATSAPP_REDIR_URL} {$WHATSAPP_TRUE_URL}
 
   reverse_proxy web:8000
 }
