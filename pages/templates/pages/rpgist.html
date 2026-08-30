@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load ftl static %}
+
+{% block title %}{% ftlmsg 'rpgist-title' %}{% endblock %}
+{% block description %}{% ftlmsg 'rpgist-description' %}{% endblock %}
+{% block og_title %}{% ftlmsg 'rpgist-title' %}{% endblock %}
+{% block og_description %}{% ftlmsg 'rpgist-description' %}{% endblock %}
+{% block og_image %}{{ social_images.rpgist }}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/gestcon.css' %}">
+{% endblock %}
+
+{% block navlinks %}
+  <li><a href="{{ localized_urls.gestcon }}">{% ftlmsg 'nav-gestcon' %}</a></li>
+  <li><a href="{{ localized_urls.rpgist }}">{% ftlmsg 'nav-rpgist' %}</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="hero">
+    <img src="{% static 'img/rpgist/2026/rpgist_banner.png' %}" loading="eager" alt="{% ftlmsg 'rpgist-hero-alt' %}" width="1800" height="720">
+  </section>
+
+  <section id="about" class="white">
+    <div class="container">
+      <p>{% ftlmsg 'rpgist-about-body' %}</p>
+    </div>
+  </section>
+
+  <section class="dgreen" id="gallery">
+    <div id="gallery-grid">
+
+      <figure class="gestcon-photo-feature lpurple">
+        <img src="/media/rpgist/2026/jogo.avif" loading="lazy" decoding="async" width="1488" height="972" alt="{% ftlmsg 'rpgist-characters-right-alt' %}">
+        <figcaption>{% ftlmsg 'rpgist-setup-caption' %}</figcaption>      </figure>
+
+      <figure class="gestcon-photo-feature dgreen">
+        <figcaption>{% ftlmsg 'rpgist-setup-caption' %}</figcaption>
+        <img src="/media/rpgist/2026/palestra.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'rpgist-setup-alt' %}">
+      </figure>
+
+      <figure class="gestcon-photo-feature pink">
+        <img src="/media/rpgist/2026/mini.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'rpgist-dice-alt' %}">
+        <figcaption>{% ftlmsg 'rpgist-dice-caption' %}</figcaption>
+      </figure>
+
+      <figure id="gallery-cta" class="gestcon-photo-feature black">
+        <figcaption>
+          <p>{% ftlmsg 'rpgist-community-cta' %}</p>
+        </figcaption>
+        <img src="/media/rpgist/2026/femur.avif" loading="lazy" decoding="async" width="1488" height="992" alt="{% ftlmsg 'rpgist-community-alt' %}">
+      </figure>
+    </div>
+  </section>
+{% endblock %}

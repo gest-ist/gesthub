@@ -11,6 +11,7 @@ nav-calendar = Calendario
 nav-gallery = Galería
 nav-collection = Ludoteca
 nav-gestcon = GESTCon
+nav-rpgist = RPGIST
 nav-partners = Socios
 
 month-1 = Enero

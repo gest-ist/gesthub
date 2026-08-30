@@ -63,6 +63,21 @@ gestcon-about-body =
   A GESTCon é uma convenção de Jogos de Tabuleiro organizada pelo GEST, um grupo de estudantes do IST dedicado aos jogos de mesa e aos demais tipos de jogos.
   A primeira edição deste evento realizou-se a 9, 10 e 11 de Janeiro de 2026 e foi o primeiro evento deste tipo em Lisboa desde 2019! Tivemos centenas de jogos de tabuleiro, clássicos e novidades, jogados entre amigos e família ao longo de três dias de convenção!
 gestcon-gallery-title = Galeria
+
+rpgist-title = RPGIST — Festival de RPG
+rpgist-description = Festival de RPG organizado pelo GEST no Instituto Superior Técnico.
+rpgist-hero-alt = Banner do RPGIST
+rpgist-about-body =
+  O RPGIST é um evento dedicado aos jogos de roleplay, pensado para reunir jogadores, mestres e entusiastas em torno de mesas de fantasia, ficção científica, horror e muito mais.
+  A edição de 2026 traz experiências, sessões, workshops e convívio em torno da comunidade de RPG do IST.
+rpgist-tables-left-alt = Mesas do RPGIST preparadas para sessões
+rpgist-characters-right-alt = Jogadores do RPGIST a preparar personagens
+rpgist-setup-alt = Montagem do evento e zona de jogo do RPGIST
+rpgist-setup-caption = Um espaço para novos e experientes jogadores reunirem-se em torno da próxima campanha.
+rpgist-dice-alt = Dados e material de jogo do RPGIST na mesa
+rpgist-dice-caption = Dados, mapas e histórias prontas para começar.
+rpgist-community-alt = Comunidade do RPGIST e mestre de jogo no evento
+rpgist-community-cta = Uma comunidade acolhedora para jogadores, mestres e curiosos.
 gestcon-ludoteca-left-alt = Ludoteca da GESTCon
 gestcon-ludoteca-right-alt = Ludoteca da GESTCon
 gestcon-ludoteca-caption = Com uma ludoteca com mais de 300 jogos selecionados, houve diversão para todas as idades e níveis de experiência!

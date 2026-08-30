@@ -13,6 +13,7 @@ def template(path: str):
 
 
 gestcon_view = template("pages/gestcon.html")
+rpgist_view = template("pages/rpgist.html")
 
 
 ROUTES = {
@@ -23,6 +24,10 @@ ROUTES = {
     "gestcon": (
         gestcon_view,
         {"pt": "gestcon/2026", "en": "gestcon/2026", "es": "gestcon/2026"},
+    ),
+    "rpgist": (
+        rpgist_view,
+        {"pt": "rpgist/2026", "en": "rpgist/2026", "es": "rpgist/2026"},
     ),
     "gestcon_gallery": (
         views.gestcon_gallery,
@@ -45,4 +50,8 @@ urlpatterns = [
     path("gestcon/2026/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("pt/gestcon/", RedirectView.as_view(url="/pt/gestcon/2026/", permanent=False)),
     path("en/gestcon/", RedirectView.as_view(url="/en/gestcon/2026/", permanent=False)),
+    path("rpgist/", RedirectView.as_view(url="/pt/rpgist/2026/", permanent=False)),
+    path("rpgist/2026/", RedirectView.as_view(url="/pt/rpgist/2026/", permanent=False)),
+    path("pt/rpgist/", RedirectView.as_view(url="/pt/rpgist/2026/", permanent=False)),
+    path("en/rpgist/", RedirectView.as_view(url="/en/rpgist/2026/", permanent=False)),
 ]

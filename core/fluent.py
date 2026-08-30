@@ -136,6 +136,7 @@ def context(request):
         "social_images": {
             "default": request.build_absolute_uri(static("img/banner.webp")),
             "gestcon": request.build_absolute_uri(static("img/gestcon/2026/banner.webp")),
+            "rpgist": request.build_absolute_uri(static("img/rpgist/2026/rpgist_banner.png")),
         },
         "site_urls": {
             "discord": discord_url,
@@ -149,6 +150,7 @@ def context(request):
             "home": route_url("home", language),
             "collection": route_url("collection", language),
             "gestcon": route_url("gestcon", language),
+            "rpgist": route_url("rpgist", language),
             "gestcon_gallery": route_url("gestcon_gallery", language),
             "partners": route_url("partners", language),
         },
