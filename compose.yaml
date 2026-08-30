@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    image: "${GEST_IMAGE:-gest-website}:latest"
     restart: unless-stopped
     env_file: .env
     expose:
@@ -18,6 +19,7 @@ services:
 
   collectstatic:
     build: .
+    image: "${GEST_IMAGE:-gest-website}:latest"
     profiles: ["ops"]
     command: ["manage", "collectstatic", "--noinput", "--clear"]
     user: "${UID:-0}:${GID:-0}"
@@ -40,6 +42,12 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./public:/srv/gest/public:ro
+      - type: bind
+        source: ./.git-sync
+        target: /run/gesthub-sync
+        read_only: true
+        bind:
+          create_host_path: false
       - caddy_data:/data
       - caddy_config:/config
     networks:

@@ -1,0 +1,16 @@
+# How to install:
+#   systemctl --user enable --now "$PWD/scripts/gesthub-sync.service"
+
+[Unit]
+Description=GESTHub repository sync webhook
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env uv run --script %y/sync_repo.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

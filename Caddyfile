@@ -19,5 +19,8 @@
   redir {$DISCORD_REDIR_URL} {$DISCORD_TRUE_URL}
   redir {$WHATSAPP_REDIR_URL} {$WHATSAPP_TRUE_URL}
 
+  @sync path {$SYNC_WEBHOOK_PATH:/ops/sync}
+  reverse_proxy @sync unix//run/gesthub-sync/webhook.sock
+
   reverse_proxy web:8000
 }
