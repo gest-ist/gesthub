@@ -7,6 +7,7 @@ home-discord-invite = Join us on Discord to chat, participate in activities, and
 home-whatsapp-invite = Join our WhatsApp group for event updates and community news!
 
 home-events-title = Recurring events
+home-event-title = Upcoming events
 home-gamenights-title = Game Nights
 home-gamenights-body =
   Come hang out at our weekly Game Nights! Mark your calendars for the next date and come play Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength, and more. No registration is required, and you can bring your own group or come on your own. The events are open to veterans and beginners alike (even with no experience!).
@@ -17,6 +18,14 @@ home-oneshots-body =
   Dungeons & Dragons (D&D) One-Shot events are held quarterly and are geared toward players of all experience levels, from curious beginners to seasoned veterans. Each session is self-contained, giving participants a complete adventure without a long-term commitment. Registration is available individually or as a group.
 home-sign-up = Sign up
 home-oneshots-closed = We are not running one-shots at the moment.
+home-recruitment-title = Recruitment
+home-recruitment-body =
+  We are always looking for new members to join our community, take part in our activities, and help organise events. If you want to get involved, fill in the form below.
+home-recruitment-form = Join the recruitment form
+home-workshop-title = Workshop: Your First Character
+home-workshop-body =
+  We will be running a workshop to help you create your first character. It will take place in one of the first two weeks of classes, depending on which day more people can attend. Fill in the form to let us know you want to participate.
+home-workshop-forms = Sign up for the workshop “Your First Character”
 
 home-calendar-title = Calendar
 home-calendar-frame-title = GEST calendar
