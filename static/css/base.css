@@ -309,9 +309,14 @@ header>nav {
   }
 }
 
-@media (max-width: 740px) {
+@media (max-width: 780px) {
   #nav-socials {
-    display: none;
+    display: flex;
+
+    &>a[aria-label="WhatsApp"],
+    &>a[aria-label="Email"] {
+      display: none;
+    }
   }
 
   #nav-menu-socials {
@@ -319,6 +324,11 @@ header>nav {
     display: flex;
     justify-content: center;
     gap: 0;
+
+    &>a[aria-label="Instagram"],
+    &>a[aria-label="Discord"] {
+      display: none;
+    }
   }
 }
 

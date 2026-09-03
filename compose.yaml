@@ -5,27 +5,33 @@ services:
     env_file: .env
     expose:
       - 8000
-    volumes:
-      - ./public:/app/public
+    depends_on:
+      - postgres
     environment:
       DJANGO_SETTINGS_MODULE: core.settings.prod
       DJANGO_DEBUG: "false"
+    volumes:
+      - ./public:/app/public
+    networks:
+      - web
+      - database
 
   collectstatic:
     build: .
     profiles: ["ops"]
+    command: ["manage", "collectstatic", "--noinput", "--clear"]
     user: "${UID:-0}:${GID:-0}"
     env_file: .env
-    volumes:
-      - ./public/static:/app/public/static
     environment:
       DJANGO_SETTINGS_MODULE: core.settings.prod
       DJANGO_DEBUG: "false"
-    command: ["manage", "collectstatic", "--noinput", "--clear"]
+    volumes:
+      - ./public/static:/app/public/static
 
   caddy:
     image: caddy:2-alpine
     restart: unless-stopped
+    env_file: .env
     depends_on:
       - web
     ports:
@@ -36,7 +42,29 @@ services:
       - ./public:/srv/gest/public:ro
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - web
+
+  postgres:
+    image: postgres:18-alpine
+    command: postgres -c "config_file=/etc/postgresql/postgresql.conf"
+    restart: always
+    mem_limit: 1G
+    environment:
+      POSTGRES_USER: gesthub
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: gesthub
+    volumes:
+      - pgdata:/var/lib/postgresql:Z
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    networks:
+      - database
 
 volumes:
   caddy_data:
   caddy_config:
+  pgdata:
+
+networks:
+  database:
+  web:

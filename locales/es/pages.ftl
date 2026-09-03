@@ -7,6 +7,7 @@ home-discord-invite = ¡Únete a nosotros en Discord para hablar, participar en 
 home-whatsapp-invite = ¡Únete a nuestro grupo de WhatsApp para recibir novedades de eventos y de la comunidad!
 
 home-events-title = Eventos recurrentes
+home-event-title = Próximos eventos
 home-gamenights-title = Game Nights
 home-gamenights-body =
   ¡Aparece en nuestras Game Nights semanales! Marca en tu calendario la próxima fecha y ven jugar Catan, HEAT: Pedal to the Metal, Cat in the Box, Wavelength y mucho más. No es necessaria inscripción, y puedes traer tu grupo o venir individualmente. Este evento es abierto tanto a veteranos como a principiantes (¡o sin experiencia de todo!).
@@ -17,6 +18,14 @@ home-oneshots-body =
   Los eventos de One-Shots de Dungeons & Dragons (D&D) se realizan trimestralmente y se dirigen a jugadores de todos los niveles de experiencia, desde iniciantes curiosos hasta veteranos experientes. Cada sesión es independente, dando a sus participantes una aventura completa sin compromiso a largo plazo. Las inscripciones pueden ser hechas individualmente o en grupo.
 home-sign-up = Inscripciones
 home-oneshots-closed = Por ahora no hay inscripciones en marcha.
+home-recruitment-title = Reclutamiento
+home-recruitment-body =
+  Siempre estamos buscando nuevos miembros para unirse a nuestra comunidad, participar en nuestras actividades y ayudar a organizar eventos. Si quieres participar, rellena el formulario.
+home-recruitment-form = Rellenar formulario de reclutamiento
+home-workshop-title = Taller: Tu primer personaje
+home-workshop-body =
+  Vamos a realizar un taller para ayudarte a crear tu primer personaje. Tendrá lugar en una de las dos primeras semanas de clases, dependiendo del día en el que más gente pueda asistir. Rellena el formulario para indicarnos que quieres participar.
+home-workshop-forms = Inscribirse al taller “Tu primer personaje”
 
 home-calendar-title = Calendario
 home-calendar-frame-title = Calendario del GEST

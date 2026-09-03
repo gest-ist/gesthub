@@ -8,6 +8,12 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 WORKDIR /app
 
+# Install system libraries required by the Python image-processing dependencies.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    imagemagick \
+    libmagickwand-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install third-party dependencies before copying app code so Docker can reuse
 # this layer when only templates, CSS, or Python modules change.
 COPY pyproject.toml uv.lock ./
