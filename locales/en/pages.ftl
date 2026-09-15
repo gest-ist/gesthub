@@ -24,8 +24,7 @@ home-recruitment-body =
 home-recruitment-form = Join the recruitment form
 home-workshop-title = Workshop: Your First Character
 home-workshop-body =
-  We will be running a workshop to help you create your first character. It will take place in one of the first two weeks of classes, depending on which day more people can attend. Fill in the form to let us know you want to participate.
-home-workshop-forms = Sign up for the workshop “Your First Character”
+  We will be running a workshop to help you create your first character. It happens on the 16th of Setembre, on room V1.06, from 18h to 20h.
 
 home-calendar-title = Calendar
 home-calendar-frame-title = GEST calendar

@@ -23,8 +23,7 @@ home-recruitment-body =
   Estamos sempre à procura de novos membros para entrarem na nossa equipa, participarem nas nossas atividades e ajudarem a organizar eventos. Se quiseres participar, preenche o formulário.
 home-recruitment-form = Preencher formulário de recrutamento
 home-workshop-title = Workshop "A tua Primeira Personagem"
-home-workshop-body = Vamos realizar um Workshop para te ajudar a criar a tua primeira personagem. Vai decorrer numa das duas primeiras semanas de aulas dependendo do dia em que mais pessoas se podem juntar. Preenche o formulário para indicares que queres participar. 
-home-workshop-forms = Inscrever-me no Workshop "A tua Primeira Personagem"
+home-workshop-body = Vamos realizar um Workshop para te ajudar a criar a tua primeira personagem. Vai decorrer dia 16 de Setembro na sala V1.06, das 18h ás 20h. 
 
 home-calendar-title = Calendário
 home-calendar-frame-title = Calendário do GEST

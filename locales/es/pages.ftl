@@ -25,7 +25,6 @@ home-recruitment-form = Rellenar formulario de reclutamiento
 home-workshop-title = Taller: Tu primer personaje
 home-workshop-body =
   Vamos a realizar un taller para ayudarte a crear tu primer personaje. Tendrá lugar en una de las dos primeras semanas de clases, dependiendo del día en el que más gente pueda asistir. Rellena el formulario para indicarnos que quieres participar.
-home-workshop-forms = Inscribirse al taller “Tu primer personaje”
 
 home-calendar-title = Calendario
 home-calendar-frame-title = Calendario del GEST
