@@ -23,8 +23,6 @@ home-recruitment-body =
   Siempre estamos buscando nuevos miembros para unirse a nuestra comunidad, participar en nuestras actividades y ayudar a organizar eventos. Si quieres participar, rellena el formulario.
 home-recruitment-form = Rellenar formulario de reclutamiento
 home-workshop-title = Taller: Tu primer personaje
-home-workshop-body =
-  Vamos a realizar un taller para ayudarte a crear tu primer personaje. Tendrá lugar en una de las dos primeras semanas de clases, dependiendo del día en el que más gente pueda asistir. Rellena el formulario para indicarnos que quieres participar.
 
 home-calendar-title = Calendario
 home-calendar-frame-title = Calendario del GEST

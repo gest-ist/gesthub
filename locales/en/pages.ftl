@@ -22,9 +22,6 @@ home-recruitment-title = Recruitment
 home-recruitment-body =
   We are always looking for new members to join our community, take part in our activities, and help organise events. If you want to get involved, fill in the form below.
 home-recruitment-form = Join the recruitment form
-home-workshop-title = Workshop: Your First Character
-home-workshop-body =
-  We will be running a workshop to help you create your first character. It happens on the 16th of Setembre, on room V1.06, from 18h to 20h.
 
 home-calendar-title = Calendar
 home-calendar-frame-title = GEST calendar
